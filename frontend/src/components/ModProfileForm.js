@@ -1,0 +1,1 @@
+// form to select which modifications will be performed on resources. displays after registration and then again in user's settings if chosen
