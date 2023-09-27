@@ -10,7 +10,7 @@ class User(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
-    _password_hash = db.Column(db.String(50), nullable=False)
+    _password_hash = db.Column(db.String, nullable=False)
     simplifiedText = db.Column(db.Boolean)
     addCaptions = db.Column(db.Boolean)
     addImages = db.Column(db.Boolean)
