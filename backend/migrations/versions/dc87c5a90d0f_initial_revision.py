@@ -28,7 +28,7 @@ def upgrade():
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=50), nullable=False),
-    sa.Column('_password_hash', sa.String(length=50), nullable=False),
+    sa.Column('_password_hash', sa.String(), nullable=False),
     sa.Column('simplifiedText', sa.Boolean(), nullable=True),
     sa.Column('addCaptions', sa.Boolean(), nullable=True),
     sa.Column('addImages', sa.Boolean(), nullable=True),
