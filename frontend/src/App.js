@@ -7,6 +7,7 @@ import ModProfileForm from './components/ModProfileForm';
 import LandingPage from './components/LandingPage';
 import Profile from "./components/Profile";
 import DocModifierContainer from "./components/DocModifierContainer";
+import ModDocContainer from "./components/ModDocContainer";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route> - subroutes for given doc ids
           </Route>  */}
           <Route path="/docModifier" element={<DocModifierContainer />} />
+          <Route path="/temporary" element={<ModDocContainer />}/>
 
         </Routes>
 
