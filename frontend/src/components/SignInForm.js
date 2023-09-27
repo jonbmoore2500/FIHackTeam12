@@ -8,23 +8,23 @@ function SignInForm() {
 
     function handleSignIn(e) {
         e.preventDefault()
-        fetch(___, { // need route name
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: username,
-                password: pass
-            })
-        })
-        .then((resp) => {
-            if (resp.ok) {
-                console.log("logged in")
-            } else {
-                console.log("error")
-            }
-        })
+        // fetch(___, { // need route name
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         username: username,
+        //         password: pass
+        //     })
+        // })
+        // .then((resp) => {
+        //     if (resp.ok) {
+        //         console.log("logged in")
+        //     } else {
+        //         console.log("error")
+        //     }
+        // })
     }
 
 
@@ -46,7 +46,7 @@ function SignInForm() {
 
                 <label>Show password</label>
                 <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
-
+                <br></br>
                 <button type="submit">Submit</button>
             </form>
         </div>
