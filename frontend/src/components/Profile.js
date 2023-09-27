@@ -1,10 +1,12 @@
 import React, {useContext, useState} from "react"
-import ModProfileForm from "./ModProfileForm"
+import {useNavigate} from "react-router-dom"
+import { UserContext } from "../contexts/UserContext"
 
 function Profile() {
 
-    const user = {"username": "jmoore123", "simplifiedText": true, "addCaptions": true, "addImages": false} // temporary
-    const [showForm, setShowForm] = useState(false)
+    const {user} = useContext(UserContext)
+    const navigate = useNavigate()
+
     
     return (
         <div>
@@ -33,7 +35,8 @@ function Profile() {
 
 
             <label>Change your modifications?</label>
-            <button onChange={() => setShowForm(true)}>Edit</button>
+            <button onClick={() => navigate("profileEdit")}>Edit</button>
+
         </div>
     )
 }

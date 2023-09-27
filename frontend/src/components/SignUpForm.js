@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import {useNavigate} from "react-router-dom"
 
 function SignUpForm() {
 
@@ -6,6 +7,8 @@ function SignUpForm() {
     const [pass, setPass] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
     const [showPass, setShowPass] = useState(false)
+
+    const navigate = useNavigate()
 
     function handleSignUp(e) {
         e.preventDefault()
@@ -18,6 +21,7 @@ function SignUpForm() {
         //         username: username,
         //         password: pass,
         //         passwordConfirm: confirmPass // check passwordConfirm with backend requirements
+        //         // INITIATE WITH BOOLEANS NULL
         //     })
         // })
         // .then((resp) => {
@@ -27,8 +31,8 @@ function SignUpForm() {
         //         console.log("error")
         //     }
         // })
-
-        // route to ModProfileForm 
+        navigate("/profileEdit")
+        
     }
 
     return (

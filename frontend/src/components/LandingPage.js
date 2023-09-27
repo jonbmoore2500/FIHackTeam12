@@ -15,6 +15,7 @@ function LandingPage() {
             <SignInForm />
             <br></br>
             <button onClick={() => setModal(true)}>Register</button>
+            
             { modal ? 
             <div className="modal">
                 <div onClick={() => setModal(false)} className="overlay"></div> 
