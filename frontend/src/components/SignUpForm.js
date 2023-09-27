@@ -12,7 +12,7 @@ function SignUpForm() {
 
     function handleSignUp(e) {
         e.preventDefault()
-        // fetch(___, { // need route name
+        // fetch('/signup', { 
         //     method: "POST",
         //     headers: {
         //         "Content-Type": "application/json"

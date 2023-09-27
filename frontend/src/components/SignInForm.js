@@ -8,7 +8,7 @@ function SignInForm() {
 
     function handleSignIn(e) {
         e.preventDefault()
-        // fetch(___, { // need route name
+        // fetch('/login', { 
         //     method: "POST",
         //     headers: {
         //         "Content-Type": "application/json"
