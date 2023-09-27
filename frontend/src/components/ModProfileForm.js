@@ -1,12 +1,16 @@
 import React, {useState, useContext} from "react"
+import {useNavigate} from "react-router-dom"
 
-function ModProfileForm() {
+
+function ModProfileForm({simplify = false, images = false, captions = false}) {
 
     // const {user} = useContext(UserContext)
 
-    const [simplifyBool, setSimplifyBool] = useState(false)
-    const [imagesBool, setImagesBool] = useState(false)
-    const [captionsBool, setCaptionsBool] = useState(false)
+    const [simplifyBool, setSimplifyBool] = useState(simplify)
+    const [imagesBool, setImagesBool] = useState(images)
+    const [captionsBool, setCaptionsBool] = useState(captions)
+    const navigate = useNavigate()
+
 
     function handleSubmit(e) { // use later, 
         e.preventDefault()
@@ -28,6 +32,7 @@ function ModProfileForm() {
         //         console.log("didn't save bools")
         //     }
         // })
+        navigate("/")
     }
 
     // change these to fancy toggles? https://www.sitepoint.com/react-toggle-switch-reusable-component/
@@ -62,6 +67,7 @@ function ModProfileForm() {
                         onChange={() => setCaptionsBool(!captionsBool)}
                     />
                 </div>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )
