@@ -8,6 +8,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
+from models import User, Original, ModifiedResource, Text, Image, Caption
 # Add your model imports
 
 

@@ -29,7 +29,7 @@ class User(db.Model, SerializerMixin):
     def authenticate(self, password):
         return bcrypt.check_password_hash(self._password_hash, password.encode('utf-8'))
     
-class Original(db.modal, SerializerMixin):
+class Original(db.Model, SerializerMixin):
     __tablename__ = 'originals'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -40,7 +40,7 @@ class Original(db.modal, SerializerMixin):
 
     serialize_rules = ('-modifiedResource.original',)
 
-class ModifiedResource(db.modal, SerializerMixin):
+class ModifiedResource(db.Model, SerializerMixin):
     __tablename__ = 'modifiedResources'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -52,7 +52,7 @@ class ModifiedResource(db.modal, SerializerMixin):
 
     serialize_rules = ('-user.modifiedResource', '-original.modifiedResource', '-text.modifiedResource', '-image.modifiedResource',)
 
-class Text(db.modal, SerializerMixin):
+class Text(db.Model, SerializerMixin):
     __tablename__ = 'text'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -61,7 +61,7 @@ class Text(db.modal, SerializerMixin):
 
     serialize_rules = ('-modifiedResource.text',)
 
-class Image(db.modal, SerializerMixin):
+class Image(db.Model, SerializerMixin):
     __tablename__ = 'images'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -73,7 +73,7 @@ class Image(db.modal, SerializerMixin):
 
     serialize_rules = ('-modifiedResource.image', '-caption.image')
 
-class Caption(db.modal, SerializerMixin):
+class Caption(db.Model, SerializerMixin):
     __tablename__ = 'captions'
 
     id = db.Column(db.Integer, primary_key=True)
