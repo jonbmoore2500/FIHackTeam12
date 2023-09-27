@@ -9,24 +9,26 @@ function SignUpForm() {
 
     function handleSignUp(e) {
         e.preventDefault()
-        fetch(___, { // need route name
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: username,
-                password: pass,
-                passwordConfirm: confirmPass // check passwordConfirm with backend requirements
-            })
-        })
-        .then((resp) => {
-            if (resp.ok) {
-                console.log("logged in")
-            } else {
-                console.log("error")
-            }
-        })
+        // fetch(___, { // need route name
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         username: username,
+        //         password: pass,
+        //         passwordConfirm: confirmPass // check passwordConfirm with backend requirements
+        //     })
+        // })
+        // .then((resp) => {
+        //     if (resp.ok) {
+        //         console.log("logged in")
+        //     } else {
+        //         console.log("error")
+        //     }
+        // })
+
+        // route to ModProfileForm 
     }
 
     return (
@@ -51,9 +53,10 @@ function SignUpForm() {
                     type={showPass ? "" : "password"}
                 />
 
-
                 <label>Show password</label>
                 <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
+                <br></br>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )

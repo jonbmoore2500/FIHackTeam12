@@ -8,27 +8,27 @@ function ModProfileForm() {
     const [imagesBool, setImagesBool] = useState(false)
     const [captionsBool, setCaptionsBool] = useState(false)
 
-    // function handleSubmit(e) { // use later, 
-    //     e.preventDefault()
-    //     fetch(___${user.id}, { // need route name
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             simplifiedText: simplifyBool,
-    //             addImages: imagesBool,
-    //             addCaptions: captionsBool
-    //         })
-    //     })
-    //     .then((resp) => {
-    //         if (resp.ok) {
-    //             console.log("saved bools")
-    //         } else {
-    //             console.log("didn't save bools")
-    //         }
-    //     })
-    // }
+    function handleSubmit(e) { // use later, 
+        e.preventDefault()
+        // fetch(___${user.id}, { // need route name
+        //     method: "PATCH",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         simplifiedText: simplifyBool,
+        //         addImages: imagesBool,
+        //         addCaptions: captionsBool
+        //     })
+        // })
+        // .then((resp) => {
+        //     if (resp.ok) {
+        //         console.log("saved bools")
+        //     } else {
+        //         console.log("didn't save bools")
+        //     }
+        // })
+    }
 
     // change these to fancy toggles? https://www.sitepoint.com/react-toggle-switch-reusable-component/
 
@@ -37,7 +37,7 @@ function ModProfileForm() {
             <div>accessibility logo</div>
             <div>Accessibility text</div>
             <form onSubmit={handleSubmit}>
-                option boxes w/ images, arrange side by side
+                option boxes w/ images, arrange side by side. change the box to show selected as opposed to just the checkbox?
                 <div>
                     <div>Simplify Text</div>
                     <input 
