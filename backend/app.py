@@ -18,6 +18,27 @@ from models import User, Original, ModifiedResource, Text, Image, Caption
 def index():
     return '<h1>Project Server</h1>'
 
+@app.patch('/user/<int:id>')
+def edit_user_preferences(id):
+    user = User.query.filter_by(id=id).first()
+    data = request.get_json()
+
+    if not user:
+        return {'error': 'not user found'}, 404
+    if not data:
+        return {'error': 'unable to process your input'}, 422
+    
+    try:
+        for attr in data:
+            setattr(user, attr, data[attr])
+        db.session.add(user)
+        db.session.commit()
+        return user.to_dict(), 200
+    except ValueError:
+        return {'error': 'unable to process your input'}, 422
+    
+
+
 @app.post('/signup')
 def signup():
     data = request.get_json()
