@@ -68,16 +68,6 @@ class Image(db.Model, SerializerMixin):
     modifiedId = db.Column(db.Integer, db.ForeignKey('modifiedResources.id'), nullable=False)
     url = db.Column(db.String, nullable=False)
     location = db.Column(db.Integer)
+    caption = db.Column(db.String)
 
-    caption = db.relationship('Caption', backref='image', cascade='all')
-
-    serialize_rules = ('-modifiedResource.image', '-caption.image')
-
-class Caption(db.Model, SerializerMixin):
-    __tablename__ = 'captions'
-
-    id = db.Column(db.Integer, primary_key=True)
-    imageId = db.Column(db.Integer, db.ForeignKey('images.id'), nullable=False)
-    text = db.Column(db.String, nullable=False)
-
-    serialize_rules = ('-image.caption')
+    serialize_rules = ('-modifiedResource.image',)
