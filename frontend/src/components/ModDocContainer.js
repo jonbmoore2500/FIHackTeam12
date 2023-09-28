@@ -29,13 +29,15 @@ function ModDocContainer() {
     }
 
     function generateArr(obj) {
-        let arr = sample.texts.map((t) => t.text)
-        let images = sample.images.map((image, i) => image.url)
-        let captions = sample.images.map((image, i) => image.caption["text"])
-        let indices = sample.images.map((image, i) => image.location)
+        let arr = sample.texts.map((t) => ["text", t.text])
+
+        let images = sample.images.map((image) => ["img", image.url, image.caption["text"]])
+        let captions = sample.images.map((image) => ["caption", image.caption["text"]])
+        let indices = sample.images.map((image) => image.location)
         indices.forEach((ind, i) => {
             arr = [...arr.slice(0, ind + (i * 2)), images[i], captions[i], ...arr.slice(ind + (i * 2))]
         })
+
         return arr
     }
 
@@ -43,16 +45,19 @@ function ModDocContainer() {
 
     return (
         <div>
-            {dispData.map((str, i) => {
-                try {
-                    const url = new URL(str)
+            {dispData.map((arr, i) => {
+                if (arr[0] === "text") {
                     return (
-                        <img key={i} src={str} width={250} height={250} alt={`Image ${i}`}/>
-                    ) 
-                } catch (error) {
-                    return (
-                        <p key={i}>{str}</p>
+                        <p key={i}>{arr[1]}</p>
                     )
+                } else if (arr[0] === "img") {
+                    return (
+                        <img key={i} src={arr[1]} width={250} height={250} alt={arr[2]}/>
+                    ) 
+                } else {
+                    return (
+                        <p key={i}>{arr[1]}</p> // caption, change format in some way?
+                    ) 
                 }
             })}
         </div>

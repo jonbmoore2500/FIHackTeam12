@@ -24,7 +24,7 @@ function App() {
             <Route> - subroutes for given doc ids
           </Route>  */}
           <Route path="/docModifier" element={<DocModifierContainer />} />
-          <Route path="/temporary" element={<ModDocContainer />}/>
+          {/* <Route path="/temporary" element={<ModDocContainer />}/> */}
 
         </Routes>
 
