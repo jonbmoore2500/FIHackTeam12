@@ -8,7 +8,7 @@ from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
-from models import User, Original, ModifiedResource, Text, Image, Caption
+from models import User, Original, ModifiedResource, Text, Image
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -39,6 +39,67 @@ def modify_user_input():
     simplified_text = response.choices[0].text.strip()
 
     return simplified_text, 201
+
+@app.post('/saveResource')
+def save_resource():
+    data = request.get_json()
+    # this is what the structure of the object should look like {
+    # "title": "Sample Title7",
+    # "url": "https://example.com/sample-url",
+    # "userId": id,
+    # "texts": [
+    #     {"text": "This is the first text."},
+    #     {"text": "Here's another text."},
+    #     {"text": "And one more text."}
+    # ],
+    # "images": [
+    #     {"url": "https://example.com/image1.jpg", "caption": "Image 1 Caption"},
+    #     {"url": "https://example.com/image2.jpg", "caption": "Image 2 Caption"},
+    #     {"url": "https://example.com/image3.jpg", "caption": "Image 3 Caption"}
+    # ]
+    # }
+    if not data:
+        return {'error': 'unable to process your input'}, 422
+    
+    try:
+        original = Original(
+            title = data.get('title'),
+            url = data.get('url')
+        )
+        db.session.add(original)
+        db.session.commit()
+
+        mod = ModifiedResource(
+            userId = data.get('userId'),
+            originalId = original.id
+        )
+        db.session.add(mod)
+        db.session.commit()
+        # since many texts and images belong to one modified resource we'll need to loop through it 
+        text_list = data.get('texts')
+        if text_list:
+            for text in text_list:
+                curText = Text(
+                    modifiedId = mod.id,
+                    text = text['text']
+                )
+                db.session.add(curText)
+        
+        image_list = data.get('images')
+        if image_list:
+            for image in image_list:
+                curImage = Image(
+                    modifiedId = mod.id,
+                    url = image['url'],
+                    caption = image['caption']
+                )
+                db.session.add(curImage)
+                
+        db.session.commit()
+        return [original.to_dict(rules=('-modifiedResource.image', '-modifiedResource.text',)), mod.to_dict(rules=('-image', '-text',)), text_list, image_list], 201
+
+    except ValueError:
+        return {'error': 'unable to process your input'}, 422
 
 
 @app.patch('/user/<int:id>')
