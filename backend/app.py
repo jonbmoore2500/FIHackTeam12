@@ -9,6 +9,10 @@ from flask_restful import Resource
 # Local imports
 from config import app, db, api
 from models import User, Original, ModifiedResource, Text, Image, Caption
+import os
+from dotenv import load_dotenv
+load_dotenv()
+import openai
 # Add your model imports
 
 
@@ -17,6 +21,25 @@ from models import User, Original, ModifiedResource, Text, Image, Caption
 @app.route('/')
 def index():
     return '<h1>Project Server</h1>'
+
+@app.post('/GPT')
+def modify_user_input():
+    data = request.get_json()
+    text = data.get('toModify')
+
+    openai.api_key = os.getenv('APIKEY')
+    prompt = f"Please simplify the following text and return it with obvious paragraph breaks: {text}"
+    print(prompt)
+    response = openai.Completion.create(
+    engine="text-davinci-002",  # Use the appropriate GPT-3 engine
+    prompt=prompt,
+    max_tokens=200,  # Adjust as needed for the desired output length
+    )
+
+    simplified_text = response.choices[0].text.strip()
+
+    return simplified_text, 201
+
 
 @app.patch('/user/<int:id>')
 def edit_user_preferences(id):
