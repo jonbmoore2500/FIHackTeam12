@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react"
+import React, {useContext} from "react"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {UserContext} from "./contexts/UserContext"
 import './App.css';
@@ -7,7 +7,9 @@ import ModProfileForm from './components/ModProfileForm';
 import LandingPage from './components/LandingPage';
 import Profile from "./components/Profile";
 import DocModifierContainer from "./components/DocModifierContainer";
-import ModDocContainer from "./components/ModDocContainer";
+import PortfolioContainer from "./components/PortfolioContainer";
+
+import Layout from "./components/Layout";
 
 function App() {
 
@@ -17,17 +19,16 @@ function App() {
     <div className="App">
         { user ? 
         <BrowserRouter >
-        <Routes>
-          <Route exact path="/" element={<Profile />} />
-          <Route path="/profileEdit" element={<ModProfileForm />} />
-          {/* <Route path="/portfolio" element={<PortfolioContainer />}> 
-            <Route> - subroutes for given doc ids
-          </Route>  */}
-          <Route path="/docModifier" element={<DocModifierContainer />} />
-          {/* <Route path="/temporary" element={<ModDocContainer />}/> */}
-
-        </Routes>
-
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Profile />} />
+              <Route path="/profileEdit" element={<ModProfileForm />} />
+              <Route path="/portfolio" element={<PortfolioContainer />}> 
+                {/* <Route> - subroutes for given doc ids. coming later. will just fetch a given resource and display in preexisting components */}
+              </Route> 
+              <Route path="/docModifier" element={<DocModifierContainer />} />
+            </Route>
+          </Routes>
         </BrowserRouter>
         :
         <LandingPage /> 

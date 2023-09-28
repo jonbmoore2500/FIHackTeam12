@@ -1,7 +1,5 @@
 import React, {useState, useContext} from "react"
 import { UserContext } from "../contexts/UserContext"
-import axios from "axios"
-import * as cheerio from 'cheerio'
 import ModDocContainer from "./ModDocContainer"
 import OriginalDocContainer from "./OriginalDocContainer"
 import UploadDocForm from "./UploadDocForm"
