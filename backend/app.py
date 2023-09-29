@@ -36,7 +36,9 @@ def modify_user_input():
     max_tokens=200,  # Adjust as needed for the desired output length
     )
 
-    simplified_text = response.choices[0].text.strip()
+    simplified_text = response.choices[0] 
+    # breaking down the response too much on the backend kept throwing errors on the front
+    # this returns more data, but in a way that the front can then process
 
     return simplified_text, 201
 
@@ -53,9 +55,9 @@ def save_resource():
     #     {"text": "And one more text."}
     # ],
     # "images": [
-    #     {"url": "https://example.com/image1.jpg", "caption": "Image 1 Caption"},
-    #     {"url": "https://example.com/image2.jpg", "caption": "Image 2 Caption"},
-    #     {"url": "https://example.com/image3.jpg", "caption": "Image 3 Caption"}
+    #     {"url": "https://example.com/image1.jpg", "location": 1, "caption": "Image 1 Caption"},
+    #     {"url": "https://example.com/image2.jpg", "location": 2, "caption": "Image 2 Caption"},
+    #     {"url": "https://example.com/image3.jpg", "location": 3, "caption": "Image 3 Caption"}
     # ]
     # }
     if not data:
@@ -91,6 +93,7 @@ def save_resource():
                 curImage = Image(
                     modifiedId = mod.id,
                     url = image['url'],
+                    location = image['location'],
                     caption = image['caption']
                 )
                 db.session.add(curImage)
