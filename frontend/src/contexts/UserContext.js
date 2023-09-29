@@ -4,11 +4,23 @@ const UserContext = React.createContext()
 
 function UserProvider({children}) {
 
-    const [user, setUser] = useState({"username": "jmoore123", "simplifiedText": true, "addCaptions": true, "addImages": false}) // temporary
+    // const [user, setUser] = useState({"username": "jmoore123", "simplifiedText": true, "addCaptions": true, "addImages": false}) // temporary
+    const [user, setUser] = useState(null)
+    
+    console.log(user)
 
-    useEffect(() => {
-        // fetch user based on session 
-    }, [])
+    // useEffect(() => {
+    //     fetch("http://127.0.0.1:5555/check_session", {
+    //         method: "GET",
+    //         credentials: "include"
+    //     }).then((r) => {
+    //         if (r.ok) {
+    //             r.json().then((user) => {
+    //                 setUser(user)
+    //             })
+    //         }
+    //     })
+    // }, [])
 
     return <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>
 }

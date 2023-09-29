@@ -12,7 +12,7 @@ async function callGPT(textInput, images) {
     }
 
 
-    fetch("http://127.0.0.1:5555/GPT", {
+    await fetch("http://127.0.0.1:5555/GPT", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

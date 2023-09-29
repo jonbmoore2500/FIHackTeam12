@@ -5,8 +5,8 @@ import { UserContext } from "../contexts/UserContext"
 function Profile() {
 
     const {user} = useContext(UserContext)
-    const navigate = useNavigate()
 
+    const navigate = useNavigate()
     
     return (
         <div>
