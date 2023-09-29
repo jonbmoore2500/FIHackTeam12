@@ -29,7 +29,6 @@ def modify_user_input():
 
     openai.api_key = os.getenv('APIKEY')
     prompt = f"Please simplify the following text and return it with obvious paragraph breaks: {text}"
-    print(prompt)
     response = openai.Completion.create(
     engine="text-davinci-002",  # Use the appropriate GPT-3 engine
     prompt=prompt,
