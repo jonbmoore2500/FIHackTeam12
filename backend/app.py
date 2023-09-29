@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, session
+from flask import request, session, jsonify
 from flask_restful import Resource
 
 # Local imports
@@ -21,6 +21,11 @@ import openai
 @app.route('/')
 def index():
     return '<h1>Project Server</h1>'
+
+@app.get('/getModifedResource')
+def get_users_resources():
+    mod = [m.to_dict() for m in ModifiedResource.query.filter_by(userId=session.get('user_id')).all()]
+    return mod, 200
 
 @app.post('/GPT')
 def modify_user_input():
