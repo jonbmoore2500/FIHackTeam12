@@ -1,8 +1,10 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import {useNavigate} from "react-router-dom"
+import { UserContext } from "../contexts/UserContext"
 
 function SignUpForm() {
 
+    const {setUser} = useContext(UserContext)
     const [username, setUsername] = useState("")
     const [pass, setPass] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
@@ -12,26 +14,29 @@ function SignUpForm() {
 
     function handleSignUp(e) {
         e.preventDefault()
-        // fetch('/signup', { 
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         username: username,
-        //         password: pass,
-        //         passwordConfirm: confirmPass // check passwordConfirm with backend requirements
-        //         // INITIATE WITH BOOLEANS NULL
-        //     })
-        // })
-        // .then((resp) => {
-        //     if (resp.ok) {
-        //         console.log("logged in")
-        //     } else {
-        //         console.log("error")
-        //     }
-        // })
-        navigate("/profileEdit")
+        fetch('http://127.0.0.1:5555/signup', { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: pass
+                // passwordConfirm: confirmPass // check passwordConfirm with backend requirements
+                // INITIATE WITH BOOLEANS NULL
+            })
+        })
+        .then((resp) => {
+            if (resp.ok) {
+                resp.json().then((user) => {
+                    setUser(user)
+                    // navigate("/profileEdit")
+                })
+            } else {
+                console.log("error")
+            }
+        })
+        
         
     }
 

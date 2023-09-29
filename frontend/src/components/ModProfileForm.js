@@ -1,38 +1,45 @@
 import React, {useState, useContext} from "react"
 import {useNavigate} from "react-router-dom"
+import { UserContext } from "../contexts/UserContext"
 
 
-function ModProfileForm({simplify = false, images = false, captions = false}) {
+function ModProfileForm({preLogged = false}) {
 
-    // const {user} = useContext(UserContext)
+    const {user, setUser} = useContext(UserContext)
 
-    const [simplifyBool, setSimplifyBool] = useState(simplify)
-    const [imagesBool, setImagesBool] = useState(images)
-    const [captionsBool, setCaptionsBool] = useState(captions)
+    const [simplifyBool, setSimplifyBool] = useState(true && user.simplifiedText)
+    const [imagesBool, setImagesBool] = useState(true && user.addImages)
+    const [captionsBool, setCaptionsBool] = useState(true && user.addCaptions)
     const navigate = useNavigate()
 
 
     function handleSubmit(e) { // use later, 
         e.preventDefault()
-        // fetch(___${user.id}, { // need route name
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         simplifiedText: simplifyBool,
-        //         addImages: imagesBool,
-        //         addCaptions: captionsBool
-        //     })
-        // })
-        // .then((resp) => {
-        //     if (resp.ok) {
-        //         console.log("saved bools")
-        //     } else {
-        //         console.log("didn't save bools")
-        //     }
-        // })
-        navigate("/")
+        console.log(simplifyBool)
+        console.log(imagesBool)
+        console.log(captionsBool)
+        fetch(`http://127.0.0.1:5555/user/${user.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                simplifiedText: simplifyBool,
+                addImages: imagesBool,
+                addCaptions: captionsBool
+            })
+        })
+        .then((resp) => {
+            if (resp.ok) {
+                resp.json().then((data) => {
+                    setUser(data)
+                    if (preLogged) {navigate("/")}
+                })
+            } else {
+                console.log("didn't save bools")
+            }
+        })
+        // navigate("/")
     }
 
     // change these to fancy toggles? https://www.sitepoint.com/react-toggle-switch-reusable-component/

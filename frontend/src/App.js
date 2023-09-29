@@ -15,14 +15,17 @@ function App() {
 
     const {user} = useContext(UserContext) // temporary
 
+    let finishReg = false
+    if (user) {finishReg = user.simplifiedText === null || user.simplifiedText === null || user.simplifiedText === null}
+
   return (
     <div className="App">
         { user ? 
         <BrowserRouter >
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<Profile />} />
-              <Route path="/profileEdit" element={<ModProfileForm />} />
+              <Route index element={finishReg ? <ModProfileForm /> : <Profile />} />
+              <Route path="/profileEdit" element={<ModProfileForm preLogged={true}/>} />
               <Route path="/portfolio" element={<PortfolioContainer />}> 
                 {/* <Route> - subroutes for given doc ids. coming later. will just fetch a given resource and display in preexisting components */}
               </Route> 
@@ -31,7 +34,7 @@ function App() {
           </Routes>
         </BrowserRouter>
         :
-        <LandingPage /> 
+        <LandingPage />
         }
     </div>
   );
