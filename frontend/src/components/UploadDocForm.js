@@ -4,7 +4,7 @@ import * as cheerio from 'cheerio'
 import callGPT from "../custom_hooks/callGPT.js"
 
 
-function UploadDocForm({setOriginalContent, setModifiedContent}) {
+function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, setEnableButton}) {
 
     const [url, setUrl] = useState("")
 
@@ -21,11 +21,14 @@ function UploadDocForm({setOriginalContent, setModifiedContent}) {
             $('img').each((_, element) => {
               images.push($(element).attr('src'));
             });
-      
-            const gptResults = callGPT(text, images)
-            console.log(typeof text)
+            try {
+            const gptResults = await callGPT(text, images)
             setOriginalContent({ text, images });
-            setModifiedContent(gptResults)
+            handleModified(gptResults)
+
+            } catch (error) {
+                console.error("an error occurred with GPT:", error)
+            }
 
           } catch (error) {
             console.error('Error fetching content:', error);
@@ -34,6 +37,8 @@ function UploadDocForm({setOriginalContent, setModifiedContent}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setShowOriginal(true)
+        setEnableButton(false)
         fetchContent(url)
     }
 
