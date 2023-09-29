@@ -1,30 +1,36 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
+import { UserContext } from "../contexts/UserContext"
 
 function SignInForm() {
 
+    const {setUser} = useContext(UserContext)
     const [username, setUsername] = useState("")
     const [pass, setPass] = useState("")
     const [showPass, setShowPass] = useState(false)
 
     function handleSignIn(e) {
         e.preventDefault()
-        // fetch('/login', { 
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         username: username,
-        //         password: pass
-        //     })
-        // })
-        // .then((resp) => {
-        //     if (resp.ok) {
-        //         console.log("logged in")
-        //     } else {
-        //         console.log("error")
-        //     }
-        // })
+        fetch('/login', { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: pass
+            })
+        })
+        .then((resp) => {
+            if (resp.ok) {
+                resp.json().then(user => {
+                    setUser(user)
+                })
+            } else {
+                resp.json().then(error => {
+                    console.log(error)
+                })
+            }
+        })
     }
 
 

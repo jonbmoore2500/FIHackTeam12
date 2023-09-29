@@ -3,6 +3,7 @@ import { UserContext } from "../contexts/UserContext"
 import ModDocContainer from "./ModDocContainer"
 import OriginalDocContainer from "./OriginalDocContainer"
 import UploadDocForm from "./UploadDocForm"
+import callGPT from "../custom_hooks/callGPT.js"
 
 function DocModifierContainer() {
 
@@ -12,7 +13,9 @@ function DocModifierContainer() {
     
     const [originalContent, setOriginalContent] = useState({text: "", images: []})
 
+    const [modifiedContent, setModifiedContent] = useState({texts: [], images: []})
 
+    // setModifiedContent(callGPT(originalContent.text, originalContent.images))
 
     // upload resource form - give option for URL or uploading file from user's computer? how do we get a url to the user's own file system?
 
@@ -24,12 +27,15 @@ function DocModifierContainer() {
 
     return (
         <div>
-            <UploadDocForm setOriginalContent={setOriginalContent}/>
+            <UploadDocForm setOriginalContent={setOriginalContent} setModifiedContent={setModifiedContent}/>
             <button onClick={() => setShowOriginal(!showOriginal)}>Show {showOriginal ? "Modified" : "Original"}</button>
             {showOriginal ? 
                 <OriginalDocContainer originalContent={originalContent} /> 
             :
-                <ModDocContainer />
+                <>
+                    {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent}/> : <ModDocContainer />} 
+                    {/* insert loading screen if no modified content? */}
+                </>
             }
 
 
