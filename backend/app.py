@@ -36,7 +36,9 @@ def modify_user_input():
     max_tokens=200,  # Adjust as needed for the desired output length
     )
 
-    simplified_text = response.choices[0].text.strip()
+    simplified_text = response.choices[0] 
+    # breaking down the response too much on the backend kept throwing errors on the front
+    # this returns more data, but in a way that the front can then process
 
     return simplified_text, 201
 
