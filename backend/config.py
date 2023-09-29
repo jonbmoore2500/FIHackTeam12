@@ -8,7 +8,7 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flask_bcrypt import Bcrypt
-
+import os
 # Local imports
 
 # Instantiate app, set attributes
@@ -16,6 +16,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://team_12_accessability_project_user:GGxq9Y3XDvZFSblXX4P3XtXg7d8u0XyB@dpg-ck9h3rn0vg2c7392m3lg-a.oregon-postgres.render.com/team_12_accessability_project'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+app.secret_key = os.getenv('SECRET_KEY')
 
 # Define metadata, instantiate db
 metadata = MetaData(naming_convention={
