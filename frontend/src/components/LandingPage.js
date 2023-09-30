@@ -4,6 +4,7 @@ import SignUpForm from "./SignUpForm"
 import SignInForm from "./SignInForm"
 
 
+
 function LandingPage() {
 
     const [modal, setModal] = useState(false)
@@ -12,8 +13,10 @@ function LandingPage() {
         <div id="landingPageDiv"> 
             {/* big buttons! */}
             <div id="welcomeDiv" className="landingFlex">
-
+                <h1 id="appTitle">Learn Link</h1>
+                <img src="/ll_logo.png" alt="Application Logo, a large blue eye" id="landingLogo"/>
             </div>
+            <div id="vertLineDive"></div>
             <div id="signInDiv" className="landingFlex">
                 <SignInForm />
                 <h2>No Acount?</h2>
@@ -27,7 +30,7 @@ function LandingPage() {
                 <div onClick={() => setModal(false)} className="overlay"></div> 
                 <div className="modal-content">
                     <SignUpForm />
-                    <button onClick={() => setModal(false)}>Cancel</button>
+                    <button onClick={() => setModal(false)} className="landingButton">Cancel</button>
                 </div>
             </div>
             : null

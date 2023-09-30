@@ -55,8 +55,10 @@ function SignInForm() {
                     placeholder="PASSWORD"
                 />
                 <br></br>
-                <label>Show password</label>
-                <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
+                <label className="pwSelect">
+                    <span className="pwBoxLabel">Show password</span>
+                    <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
+                </label>
                 <br></br>
                 <br></br>
                 <button type="submit" className="landingButton">Submit</button>
