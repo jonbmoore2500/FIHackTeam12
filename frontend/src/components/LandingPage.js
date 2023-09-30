@@ -11,7 +11,6 @@ function LandingPage() {
 
     return (
         <div id="landingPageDiv"> 
-            {/* big buttons! */}
             <div id="welcomeDiv" className="landingFlex">
                 <h1 id="appTitle">Learn Link</h1>
                 <img src="/ll_logo.png" alt="Application Logo, a large blue eye" id="landingLogo"/>

@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react"
 import {useNavigate} from "react-router-dom"
 import { UserContext } from "../contexts/UserContext"
+import ProfSelectorBox from "./ProfSelectorBox"
 
 function Profile() {
 
@@ -10,33 +11,21 @@ function Profile() {
     
     return (
         <div>
-            <h2>{user["username"]}</h2>
+            <h1>User: {user["username"]}</h1>
+            <p>more profile info here</p>
+            <br></br>
+            <br></br>
+            <h2>Your Modification Profile: </h2>
+            <div className="profBoxContainer">
+                <ProfSelectorBox option={"simplifiedText"} selected={user["simplifiedText"]}/>
+                <ProfSelectorBox option={"addImages"} selected={user["addImages"]}/>
+                <ProfSelectorBox option={"addCaptions"} selected={user["addCaptions"]}/>
+            </div>
 
-            {user["simplifiedText"] ? 
-                <div>
-                    box showing simplifiedText is selected TRUE
-                </div>
-             : null
-            }
-
-            {user["addCaptions"] ? 
-                <div>
-                    box showing addCaptions is selected TRUE
-                </div>
-             : null
-            }
-
-            {user["addImages"] ? 
-                <div>
-                    box showing addImages is selected TRUE
-                </div>
-             : null
-            }
-
-
-            <label>Change your modifications?</label>
-            <button onClick={() => navigate("profileEdit")}>Edit</button>
-
+            <label className="updateLabel">
+                {/* <span className="pwBoxLabel">Update your settings?</span> */}
+                <button onClick={() => navigate("profileEdit")} className="updateButton">Update</button>
+            </label>
         </div>
     )
 }

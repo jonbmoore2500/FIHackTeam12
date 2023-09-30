@@ -3,13 +3,14 @@ import { UserContext } from "../contexts/UserContext"
 import ModDocContainer from "./ModDocContainer"
 import OriginalDocContainer from "./OriginalDocContainer"
 import UploadDocForm from "./UploadDocForm"
-import callGPT from "../custom_hooks/callGPT.js"
+import SaveResourceForm from "./SaveResourceForm"
 
 function DocModifierContainer() {
 
     const {user} = useContext(UserContext)
 
     const [showOriginal, setShowOriginal] = useState(true)
+    const [modal, setModal] = useState(false)
 
     const [originalContent, setOriginalContent] = useState({text: "", images: []})
 
@@ -21,25 +22,24 @@ function DocModifierContainer() {
         setModifiedContent(results)
         setEnableButton(false)
     }
-    // setModifiedContent(callGPT(originalContent.text, originalContent.images))
 
-    // upload resource form - give option for URL or uploading file from user's computer? how do we get a url to the user's own file system?
-
-    // handle resource parsing based on what the resource is. (web page? pdf?)
-    
-    // pass data to this container and into modified, include function request ai modifications based on user
-    
-    // 
 
     return (
         <div>
             <UploadDocForm setShowOriginal={setShowOriginal} setOriginalContent={setOriginalContent} handleModified={handleModified} setEnableButton={setEnableButton}/>
+            <button
+                onClick={() => setModal(true)}
+                disabled={enableButton}
+            >
+                Open
+            </button>
             <button 
                 onClick={() => setShowOriginal(!showOriginal)}
                 disabled={enableButton}
             >
                 Show {showOriginal ? "Modified" : "Original"}
             </button>
+
             {showOriginal ? 
                 <OriginalDocContainer originalContent={originalContent} /> 
             :
@@ -48,9 +48,16 @@ function DocModifierContainer() {
                     {/* insert loading screen if no modified content? */}
                 </>
             }
-
-
-            {/* <SaveResourceForm /> */}
+            { modal ? 
+            <div className="modal">
+                <div onClick={() => setModal(false)} className="overlay"></div> 
+                <div className="modal-content">
+                    <SaveResourceForm original={originalContent} modified={modifiedContent} userId={user.id} setModal={setModal}/>
+                    <button onClick={() => setModal(false)} className="landingButton">Cancel</button>
+                </div>
+            </div>
+            : null
+            }
         </div>
     )
 }
