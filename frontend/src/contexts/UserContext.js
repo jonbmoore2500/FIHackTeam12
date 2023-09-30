@@ -11,12 +11,15 @@ function UserProvider({children}) {
 
     // useEffect(() => {
     //     fetch("http://127.0.0.1:5555/check_session", {
-    //         method: "GET",
-    //         credentials: "include"
+    //         method: "GET"
     //     }).then((r) => {
     //         if (r.ok) {
     //             r.json().then((user) => {
     //                 setUser(user)
+    //             })
+    //         } else {
+    //             r.json().then((error) => {
+    //                 console.log(error)
     //             })
     //         }
     //     })

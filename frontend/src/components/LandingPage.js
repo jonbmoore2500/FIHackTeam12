@@ -9,13 +9,19 @@ function LandingPage() {
     const [modal, setModal] = useState(false)
 
     return (
-        <div> 
+        <div id="landingPageDiv"> 
             {/* big buttons! */}
+            <div id="welcomeDiv" className="landingFlex">
 
-            <SignInForm />
+            </div>
+            <div id="signInDiv" className="landingFlex">
+                <SignInForm />
+                <h2>No Acount?</h2>
+                <button onClick={() => setModal(true)} className="landingButton" id="registerButton">Register</button>
+            </div>
             <br></br>
-            <button onClick={() => setModal(true)}>Register</button>
-            
+
+
             { modal ? 
             <div className="modal">
                 <div onClick={() => setModal(false)} className="overlay"></div> 

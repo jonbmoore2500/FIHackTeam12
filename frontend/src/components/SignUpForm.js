@@ -1,5 +1,4 @@
 import React, {useState, useContext} from "react"
-import {useNavigate} from "react-router-dom"
 import { UserContext } from "../contexts/UserContext"
 
 function SignUpForm() {
@@ -10,7 +9,6 @@ function SignUpForm() {
     const [confirmPass, setConfirmPass] = useState("")
     const [showPass, setShowPass] = useState(false)
 
-    const navigate = useNavigate()
 
     function handleSignUp(e) {
         e.preventDefault()
@@ -30,7 +28,6 @@ function SignUpForm() {
             if (resp.ok) {
                 resp.json().then((user) => {
                     setUser(user)
-                    // navigate("/profileEdit")
                 })
             } else {
                 console.log("error")
@@ -41,7 +38,7 @@ function SignUpForm() {
     }
 
     return (
-        <div>
+        <div id="signUpForm">
             <h3>Register</h3>
             <form onSubmit={handleSignUp}>
                 <label>Choose your Username</label>
@@ -49,12 +46,14 @@ function SignUpForm() {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                 />
+                <br></br>
                 <label>Choose your Password</label>
                 <input 
                     onChange={(e) => setPass(e.target.value)}
                     value={pass}
                     type={showPass ? "" : "password"}
                 />
+                <br></br>
                 <label>Reenter your Password</label>
                 <input 
                     onChange={(e) => setConfirmPass(e.target.value)}

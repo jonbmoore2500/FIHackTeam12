@@ -36,24 +36,31 @@ function SignInForm() {
 
     return (
         <div>
-            <h3>Sign In: </h3>
+            <h1>Sign In: </h1>
             <form onSubmit={handleSignIn}>
-                <label>Username: </label>
+                {/* <label>Username: </label> */}
                 <input
                     onChange={(e) => setUsername(e.target.value)} 
                     value={username}
+                    className="logInInput"
+                    placeholder="USERNAME"
                 />
-                <label>Password: </label>
+                <br></br>
+                {/* <label>Password: </label> */}
                 <input 
                     onChange={(e) => setPass(e.target.value)} 
                     value={pass}
                     type={showPass ? "" : "password"}
+                    className="logInInput"
+                    placeholder="PASSWORD"
                 />
-
+                <br></br>
                 <label>Show password</label>
                 <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
                 <br></br>
-                <button type="submit">Submit</button>
+                <br></br>
+                <button type="submit" className="landingButton">Submit</button>
+                <div id="loginLineBreak"></div>
             </form>
         </div>
     )
