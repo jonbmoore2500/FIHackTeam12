@@ -1,5 +1,8 @@
 .App {
+  height: 100vh;
   text-align: center;
+  display: flex;
+  flex-direction: column
 }
 #landingPageDiv {
   display: flex;
@@ -74,4 +77,94 @@
 .pwSelect input[type="checkbox"]{
   height:20px;
   width: 20px
+}
+
+#navHeader{
+  flex: 1;
+  background-color: #b3efff;
+  border-bottom: 2px solid black;
+}
+#navHeader ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+#navHeader li{
+  flex: 1;
+  text-align: center;
+
+}
+#navHeader ul li a{
+  font-size: 22px;
+  font-weight: bold
+}
+
+#appContent{
+  flex: 11;
+  background-color: #dbe0e8;
+}
+
+.profBoxContainer{
+  display: flex;
+  justify-content: center;
+  padding: 20px
+}
+.selectorBox{
+  flex: 1;
+  height: 200px;
+  max-width: 180px;
+  background-color: #046b99;
+  margin: 20px;
+  border-radius: 12px;
+  color: white
+}
+.selectorBox.unSelected{
+  background-color: grey;
+  color: black
+}
+
+.selectorCheck{
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  margin: 0 auto;
+  color: black
+}
+
+.updateButton{
+  background-color: #046b99;
+  border: none;
+  border-radius: 6px;
+  font-size: 30px;
+  line-height: 48px;
+  padding: 0 16px;
+  width: 332px;
+  color: #fff;
+}
+
+.profModCard{
+  flex: 1;
+  height: 200px;
+  max-width: 180px;
+  background-color: #00cfff;
+  margin: 20px;
+  border-radius: 12px;
+}
+
+.profModLabel{
+  width: 20px;
+  height: 20px;
+  transform: scale(2)
+}
+.profModSpan{
+  font-size: 20px;
+}
+
+.profModLabel input[type="checkbox"]{
+  height: 40px;
+  width: 40px
 }
