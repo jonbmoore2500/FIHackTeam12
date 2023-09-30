@@ -1,38 +1,77 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#landingPageDiv {
   display: flex;
-  flex-direction: column;
+  padding-top: 110px;
+}
+.landingFlex {
+  flex: 1;
+  top: 30%
+}
+.logInInput {
+  border-radius: 6px;
+  font-size: 17px;
+  padding: 14px;
+  width: 330px;
+  background: #e6e6e6;
+  border: 1px solid #dddfe2;
+  margin: 10px;
+  color: #1d2129;
+  height: 22px;
+  line-height: 16px;
+  vertical-align: middle
+}
+#loginLineBreak {
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-bottom: 3px solid #dadde1;
+  display: flex;
+  margin: 20px 16px;
+  text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
+#signUpLineBreak {
+  align-items: center;
+  border-bottom: 3px solid #b1b4b9;
+  display: flex;
+  margin: 20px 16px;
+  text-align: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.landingButton {
+  background-color: #046b99;
+  border: none;
+  border-radius: 6px;
+  font-size: 30px;
+  line-height: 48px;
+  padding: 0 16px;
+  width: 332px;
+  color: #fff;
+}
+#registerButton {
+  background-color: #10a0e2;
+}
+#landingLogo {
+  width: 70%;
+  margin-top: 10%;
+}
+#appTitle {
+  font-size: 4em;
+  font-weight: bold;
+}
+#welcomeDiv{
+  border-right: 3px solid #dadde1;
+}
+.signUp{
+  background: #ffffff;
+}
+.pwSelect{
+  width: 20px;
+  height: 20px;
+  transform: scale(2)
+}
+.pwBoxLabel{
+  font-size: 20px;
+}
+.pwSelect input[type="checkbox"]{
+  height:20px;
+  width: 20px
 }

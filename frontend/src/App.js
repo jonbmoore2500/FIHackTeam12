@@ -16,7 +16,7 @@ function App() {
     const {user} = useContext(UserContext) // temporary
 
     let finishReg = false
-    if (user) {finishReg = user.simplifiedText === null || user.simplifiedText === null || user.simplifiedText === null}
+    if (user) {finishReg = user.simplifiedText === null || user.simplifiedText === null || user.simplifiedText === null} // we don't need efficiency
 
   return (
     <div className="App">

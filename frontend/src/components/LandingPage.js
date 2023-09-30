@@ -4,24 +4,33 @@ import SignUpForm from "./SignUpForm"
 import SignInForm from "./SignInForm"
 
 
+
 function LandingPage() {
 
     const [modal, setModal] = useState(false)
 
     return (
-        <div> 
+        <div id="landingPageDiv"> 
             {/* big buttons! */}
-
-            <SignInForm />
+            <div id="welcomeDiv" className="landingFlex">
+                <h1 id="appTitle">Learn Link</h1>
+                <img src="/ll_logo.png" alt="Application Logo, a large blue eye" id="landingLogo"/>
+            </div>
+            <div id="vertLineDive"></div>
+            <div id="signInDiv" className="landingFlex">
+                <SignInForm />
+                <h2>No Acount?</h2>
+                <button onClick={() => setModal(true)} className="landingButton" id="registerButton">Register</button>
+            </div>
             <br></br>
-            <button onClick={() => setModal(true)}>Register</button>
-            
+
+
             { modal ? 
             <div className="modal">
                 <div onClick={() => setModal(false)} className="overlay"></div> 
                 <div className="modal-content">
                     <SignUpForm />
-                    <button onClick={() => setModal(false)}>Cancel</button>
+                    <button onClick={() => setModal(false)} className="landingButton">Cancel</button>
                 </div>
             </div>
             : null
