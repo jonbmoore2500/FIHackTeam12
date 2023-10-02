@@ -13,7 +13,7 @@ function LandingPage() {
         <div id="landingPageDiv"> 
             <div id="welcomeDiv" className="landingFlex">
                 <h1 id="appTitle">Learn Link</h1>
-                <img src="/ll_logo.png" alt="Application Logo, a large blue eye" id="landingLogo"/>
+                <img src="/EyeIcon.png" alt="Application Logo, a large blue eye" id="landingLogo" />
             </div>
             <div id="vertLineDive"></div>
             <div id="signInDiv" className="landingFlex">
@@ -21,8 +21,10 @@ function LandingPage() {
                     !signUp ?
                 <>
                     <SignInForm />
-                    <h2>Create Account</h2>
-                    <button onClick={() => setSignUp(true)} className="landingButton" id="registerButton">Register</button>
+                    <div id="createAccFlex">
+                        <h2 id="createAccCaption">Create Account:</h2>
+                        <button onClick={() => setSignUp(true)} className="landingButton" id="registerButton">Register</button>
+                    </div>
                 </>
                 :
                 <>
