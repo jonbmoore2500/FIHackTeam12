@@ -64,21 +64,13 @@ function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, set
 
     return (
         <div>
-            <form onSubmit={handleSubmitURL}>
-                <input 
-                    type="text"
-                    placeholder="Enter URL"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                />
-                <button type="submit">Process URL</button>
-            </form>
             <form onSubmit={handleSubmitText}>
                 <input 
                     type="text"
                     placeholder="Enter Text"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
+                    style={{width: "800px", height: "100px"}}
                 />
                 <button type="submit">Process Text</button>
             </form>

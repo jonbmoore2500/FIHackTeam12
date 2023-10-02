@@ -39,27 +39,37 @@ function SignInForm() {
             <h1 className="landingHead">Login </h1> 
             {/* left align */}
             <form onSubmit={handleSignIn}>
-                {/* <label>Username: </label> */}
-                <input
-                    onChange={(e) => setUsername(e.target.value)} 
-                    value={username}
-                    className="logInInput"
-                    placeholder="USERNAME"
-                />
+                <div className="formGroup">
+                    <label className="loginLabel">USERNAME</label>
+                    <input
+                        onChange={(e) => setUsername(e.target.value)} 
+                        value={username}
+                        className="logInInput"
+                        placeholder="USERNAME"
+                    />
+                </div>
+
                 <br></br>
-                {/* <label>Password: </label> */}
-                <input 
-                    onChange={(e) => setPass(e.target.value)} 
-                    value={pass}
-                    type={showPass ? "" : "password"}
-                    className="logInInput"
-                    placeholder="PASSWORD"
-                />
+                <div className="formGroup">
+                    <label className="loginLabel">USERNAME</label>
+                    <input 
+                        onChange={(e) => setPass(e.target.value)} 
+                        value={pass}
+                        type={showPass ? "" : "password"}
+                        className="logInInput"
+                        placeholder="PASSWORD"
+                    />
+                </div>
                 <br></br>
-                <label className="pwSelect">
-                    <span className="pwBoxLabel">Show password</span>
+
+                <div className="checkBoxesDiv">
+                    <label className="pwSelect">
+                    </label>
+                    <label className="pwSelect">
+                        <span className="pwBoxLabel">Show password</span>
                     <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
                 </label>
+                </div>
                 <br></br>
                 <br></br>
                 <div className="rightButtonDiv">
