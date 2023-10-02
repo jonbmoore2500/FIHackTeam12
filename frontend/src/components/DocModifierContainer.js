@@ -27,27 +27,32 @@ function DocModifierContainer() {
     return (
         <div>
             <UploadDocForm setShowOriginal={setShowOriginal} setOriginalContent={setOriginalContent} handleModified={handleModified} setEnableButton={setEnableButton}/>
-            <button
-                onClick={() => setModal(true)}
-                disabled={enableButton}
-            >
-                Open
-            </button>
-            <button 
-                onClick={() => setShowOriginal(!showOriginal)}
-                disabled={enableButton}
-            >
-                Show {showOriginal ? "Modified" : "Original"}
-            </button>
-
-            {showOriginal ? 
-                <OriginalDocContainer originalContent={originalContent} /> 
-            :
-                <>
-                    {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent}/> : <ModDocContainer />} 
-                    {/* insert loading screen if no modified content? */}
-                </>
-            }
+            <div className="resourceButtonsDiv">
+                <button
+                    onClick={() => setModal(true)}
+                    disabled={enableButton}
+                    className="resourceButton"
+                >
+                    Save Resource
+                </button>
+                <button 
+                    onClick={() => setShowOriginal(!showOriginal)}
+                    disabled={enableButton}
+                    className="resourceButton"
+                >
+                    Show {showOriginal ? "Modified" : "Original"}
+                </button>
+            </div>
+            <div id="materialsContainer">
+                {showOriginal ? 
+                    <OriginalDocContainer originalContent={originalContent} /> 
+                :
+                    <>
+                        {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent}/> : <ModDocContainer />} 
+                        {/* insert loading screen if no modified content? */}
+                    </>
+                }
+            </div>
             { modal ? 
             <div className="modal">
                 <div onClick={() => setModal(false)} className="overlay"></div> 

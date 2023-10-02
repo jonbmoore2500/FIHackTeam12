@@ -73,7 +73,7 @@ function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, set
                     cols="100"
                     id="modifyTextInput"
                 />
-                <button type="submit" className="modifyButton" >Process Text</button>
+                <button type="submit" className="modifyButton">Modify Resource</button>
             </div>
         </form>
 

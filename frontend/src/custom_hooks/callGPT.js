@@ -5,7 +5,7 @@ async function callGPT(textInput, images) {
     let obj = {texts: [], images: []}
     
     function handleObjPop(data) {
-        const paras = data.split("\n")
+        const paras = data.split(/\n+/)
         paras.forEach((x) => {
             obj.texts.push({"text": x})
         })
@@ -32,7 +32,7 @@ async function callGPT(textInput, images) {
             })
         }
     })
-    console.log(obj)
+    // console.log(obj)
     return obj
 }
 

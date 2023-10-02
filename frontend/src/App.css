@@ -6,12 +6,15 @@
 }
 #landingPageDiv {
   display: flex;
-  padding-top: 110px;
+  /* padding-top: 55px;
+  padding-bottom: 55px; */
+  height: 100%
 }
 .landingFlex {
   flex: 1;
-  top: 30%
+  padding-top: 10%;
 }
+
 
 .formGroup{
   margin-bottom: 20px;
@@ -75,6 +78,9 @@
 #registerButton {
   background-color: #10a0e2;
   font-family: Roboto;
+  margin-left: 15%;
+  margin-right: 5%;
+  max-width: 160px;
 }
 #logoutButton {
   background-color: #10a0e2;
@@ -88,15 +94,25 @@
   font-family: Roboto
 }
 #landingLogo {
-  width: 70%;
-  margin-top: 10%;
+  width: 100%;
+  /* margin-top: 10%; */
 }
 #appTitle {
-  font-size: 4em;
+  font-size: 5em;
   font-weight: bold;
+  margin-bottom: 0;
+  color: white
 }
 #welcomeDiv{
-  border-right: 3px solid #dadde1;
+  background-color: #005683;
+}
+
+#createAccFlex{
+  display: flex;
+  padding-left: 22%
+}
+#createAccCaption{
+  margin: 0;
 }
 
 .pwSelect{
@@ -233,7 +249,6 @@ p.landingHead{
 #modifyForm{
   height: 100px;
   margin-top: 10px;
-  
 }
 #modifyFormDiv{
   text-align: left;
@@ -245,9 +260,12 @@ p.landingHead{
   font-family: Roboto;
   font-size: 16px;
   margin-left: 5%;
+  margin-right: 1%;
   width: 75%;
-  padding: 10px;
-  resize: none
+  padding-top: 10px;
+  padding-bottom: 10px;
+  resize: none;
+  flex:5
 }
 .modifyButton {
   background-color: #046b99;
@@ -258,10 +276,44 @@ p.landingHead{
   width: 160px;
   color: #fff;
   font-family: Roboto;
-  /* background-color: #007bff;
-  color: #fff;
+  height: 100px;
+  margin-right:5%;
+  margin-left: 1%;
+  flex: 1
+}
+
+.resourceButtonsDiv{
+margin-top: 10px;
+}
+
+.resourceButton{
+  background-color: #046b99;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer; */
+  border-radius: 24px;
+  font-size: 30px;
+  line-height: 48px;
+  width: 260px;
+  color: #fff;
+  font-family: Roboto;
+  height: 50px;
+  margin-right:5%;
+  margin-left: 1%;
+}
+.resourceButton:disabled{
+  background-color: rgba(4, 106, 153, 0.674);
+}
+
+
+
+#materialsContainer{
+  width: 70%;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-size: 20px;
+  max-height: 50%;
+  text-align: left;
+}
+p {
+  background-color: white;
+  padding:5px
 }

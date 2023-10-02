@@ -42,14 +42,11 @@ function ModProfileForm({preLogged = false}) {
 
     // change these to fancy toggles? https://www.sitepoint.com/react-toggle-switch-reusable-component/
 
-    // <label className="pwSelect">
-    //     <span className="pwBoxLabel">Show password</span>
-    //     <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
-    // </label>
+
 
     return (
-        <div>
-            <img src="/access_icon.png" width="200"/>
+        <div id="modProfileDiv">
+            <img src="/BodyIcon.png" width="200" />
             <div>Accessibility text - work in progress</div>
             <p>how should we explain what each option does? mouseover? show more info button?</p>
             <p>stuck using blue checkboxes, can't figure out how to change those colors for the life of me</p>
@@ -94,7 +91,6 @@ function ModProfileForm({preLogged = false}) {
                     <h4>{captionsBool ? "ACTIVE":"INACTIVE"}</h4>
                 </div>
             </div>
-            <br></br>
             <form onSubmit={handleSubmit}>
                 <button type="submit" className="updateButton">Save</button>
             </form>
