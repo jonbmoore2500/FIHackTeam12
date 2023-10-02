@@ -36,7 +36,8 @@ function SignInForm() {
 
     return (
         <div>
-            <h1>Sign In: </h1>
+            <h1 className="landingHead">Login </h1> 
+            {/* left align */}
             <form onSubmit={handleSignIn}>
                 {/* <label>Username: </label> */}
                 <input
@@ -61,7 +62,9 @@ function SignInForm() {
                 </label>
                 <br></br>
                 <br></br>
-                <button type="submit" className="landingButton">Submit</button>
+                <div className="rightButtonDiv">
+                    <button type="submit" className="landingButton">Submit</button>
+                </div>
                 <div id="loginLineBreak"></div>
             </form>
         </div>

@@ -37,7 +37,7 @@ def modify_user_input():
     response = openai.Completion.create(
     engine="text-davinci-002",  # Use the appropriate GPT-3 engine
     prompt=prompt,
-    max_tokens=200,  # Adjust as needed for the desired output length
+    max_tokens=1000,  # Adjust as needed for the desired output length
     )
 
     simplified_text = response.choices[0] 

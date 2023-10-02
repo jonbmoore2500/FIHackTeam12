@@ -13,7 +13,7 @@ import Layout from "./components/Layout";
 
 function App() {
 
-    const {user} = useContext(UserContext) // temporary
+    const {user} = useContext(UserContext) 
 
     let finishReg = false
     if (user) {finishReg = user.simplifiedText === null || user.simplifiedText === null || user.simplifiedText === null} // we don't need efficiency
