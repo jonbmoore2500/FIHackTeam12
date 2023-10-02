@@ -48,12 +48,12 @@ function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, set
         }
     }
 
-    function handleSubmitURL(e) {
-        e.preventDefault()
-        setShowOriginal(true)
-        setEnableButton(true)
-        fetchContent(url, "url")
-    }
+    // function handleSubmitURL(e) {
+    //     e.preventDefault()
+    //     setShowOriginal(true)
+    //     setEnableButton(true)
+    //     fetchContent(url, "url")
+    // }
 
     function handleSubmitText(e) {
         e.preventDefault()
@@ -63,18 +63,20 @@ function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, set
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmitText}>
-                <input 
-                    type="text"
-                    placeholder="Enter Text"
+
+        <form onSubmit={handleSubmitText} id="modifyForm">
+            <div id="modifyFormDiv">
+                <textarea 
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    style={{width: "800px", height: "100px"}}
+                    rows="4"
+                    cols="100"
+                    id="modifyTextInput"
                 />
-                <button type="submit">Process Text</button>
-            </form>
-        </div>
+                <button type="submit" className="modifyButton" >Process Text</button>
+            </div>
+        </form>
+
     )
 }
 

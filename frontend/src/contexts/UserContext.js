@@ -12,6 +12,7 @@ function UserProvider({children}) {
     useEffect(() => {
         fetch("http://127.0.0.1:5555/check_session")
         .then((r) => {
+            console.log(r)
             if (r.ok) {
                 r.json().then((user) => {
                     setUser(user)
