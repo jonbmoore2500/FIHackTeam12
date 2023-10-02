@@ -7,7 +7,7 @@ import SignInForm from "./SignInForm"
 
 function LandingPage() {
 
-    const [modal, setModal] = useState(false)
+    const [signUp, setSignUp] = useState(false)
 
     return (
         <div id="landingPageDiv"> 
@@ -17,23 +17,23 @@ function LandingPage() {
             </div>
             <div id="vertLineDive"></div>
             <div id="signInDiv" className="landingFlex">
-                <SignInForm />
-                <h2>No Acount?</h2>
-                <button onClick={() => setModal(true)} className="landingButton" id="registerButton">Register</button>
-            </div>
-            <br></br>
-
-
-            { modal ? 
-            <div className="modal">
-                <div onClick={() => setModal(false)} className="overlay"></div> 
-                <div className="modal-content">
+                {
+                    !signUp ?
+                <>
+                    <SignInForm />
+                    <h2>Create Account</h2>
+                    <button onClick={() => setSignUp(true)} className="landingButton" id="registerButton">Register</button>
+                </>
+                :
+                <>
                     <SignUpForm />
-                    <button onClick={() => setModal(false)} className="landingButton">Cancel</button>
-                </div>
+
+                    <div className="rightButtonDiv">
+                        <button onClick={() => setSignUp(false)} className="landingButton">Cancel</button>
+                    </div>
+                </>
+                }
             </div>
-            : null
-            }
         </div>
     )
 }

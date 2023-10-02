@@ -9,21 +9,20 @@ function UserProvider({children}) {
     
     console.log(user)
 
-    // useEffect(() => {
-    //     fetch("http://127.0.0.1:5555/check_session", {
-    //         method: "GET"
-    //     }).then((r) => {
-    //         if (r.ok) {
-    //             r.json().then((user) => {
-    //                 setUser(user)
-    //             })
-    //         } else {
-    //             r.json().then((error) => {
-    //                 console.log(error)
-    //             })
-    //         }
-    //     })
-    // }, [])
+    useEffect(() => {
+        fetch("http://127.0.0.1:5555/check_session")
+        .then((r) => {
+            if (r.ok) {
+                r.json().then((user) => {
+                    setUser(user)
+                })
+            } else {
+                r.json().then((error) => {
+                    console.log(error)
+                })
+            }
+        })
+    }, [])
 
     return <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>
 }

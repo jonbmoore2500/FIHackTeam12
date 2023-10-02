@@ -12,19 +12,40 @@
   flex: 1;
   top: 30%
 }
-.logInInput {
-  border-radius: 6px;
-  font-size: 17px;
-  padding: 14px;
-  width: 330px;
-  background: #e6e6e6;
-  border: 1px solid #dddfe2;
-  margin: 10px;
-  color: #1d2129;
-  height: 22px;
-  line-height: 16px;
-  vertical-align: middle
+
+.formGroup{
+  margin-bottom: 20px;
+  text-align: left;
+  border-bottom: 1px solid #666;
+  width: 400px;
+  margin-left:15%;
+  display: flex
 }
+.loginLabel{
+  display: block;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  padding-left: 0;
+  flex:1
+}
+.logInInput {
+  width: 100%;
+  padding: 5px;
+  padding-left: 0;
+  border: none;
+  /* border-bottom: 1px solid #666; */
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  flex:3
+}
+.checkBoxesDiv{
+  display:flex;
+  width: 430px;
+  padding-left: 15%;
+}
+
 #loginLineBreak {
   align-items: center;
   border-bottom: 3px solid #dadde1;
@@ -34,23 +55,37 @@
 }
 #signUpLineBreak {
   align-items: center;
-  border-bottom: 3px solid #b1b4b9;
+  border-bottom: 3px solid #dadde1;
   display: flex;
   margin: 20px 16px;
   text-align: center;
 }
+
 .landingButton {
   background-color: #046b99;
   border: none;
-  border-radius: 6px;
+  border-radius: 24px;
   font-size: 30px;
   line-height: 48px;
   padding: 0 16px;
-  width: 332px;
+  width: 160px;
   color: #fff;
+  font-family: Roboto;
 }
 #registerButton {
   background-color: #10a0e2;
+  font-family: Roboto;
+}
+#logoutButton {
+  background-color: #10a0e2;
+  border: none;
+  border-radius: 24px;
+  font-size: 30px;
+  line-height: 48px;
+  padding: 0 16px;
+  width: 160px;
+  color: #fff;
+  font-family: Roboto
 }
 #landingLogo {
   width: 70%;
@@ -63,21 +98,37 @@
 #welcomeDiv{
   border-right: 3px solid #dadde1;
 }
-.signUp{
-  background: #ffffff;
-}
+
 .pwSelect{
   width: 20px;
   height: 20px;
-  transform: scale(2)
+  flex: 1
 }
 .pwBoxLabel{
-  font-size: 20px;
+  font-size: 16px;
 }
 .pwSelect input[type="checkbox"]{
-  height:20px;
-  width: 20px
+  height:16px;
+  width: 16px
 }
+
+.landingHead{
+  text-align: left;
+  padding-left: 15%;
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+p.landingHead{
+  font-size: medium;
+  margin-top: 0
+}
+
+.rightButtonDiv{
+  display:block;
+  text-align: right;
+  padding-right: 20%;
+}
+
 
 #navHeader{
   flex: 1;
@@ -99,12 +150,18 @@
 }
 #navHeader ul li a{
   font-size: 22px;
-  font-weight: bold
+  font-weight: bold;
+  text-decoration: none;
+  color: black
+}
+#navHeader ul li a.active{
+  text-decoration:underline;
+  font-size: 24px
 }
 
 #appContent{
   flex: 11;
-  background-color: #dbe0e8;
+  background-color: white;
 }
 
 .profBoxContainer{
@@ -116,14 +173,17 @@
   flex: 1;
   height: 200px;
   max-width: 180px;
-  background-color: #046b99;
+  background-color: #00cfff;
   margin: 20px;
   border-radius: 12px;
-  color: white
+  color: black;
+  border: 3px solid black
 }
 .selectorBox.unSelected{
-  background-color: grey;
-  color: black
+  background-color: #046b99;
+  color: white;
+  border: 3px solid white
+  /* if background color changes, match unselected border color  */
 }
 
 .selectorCheck{
@@ -136,14 +196,15 @@
 }
 
 .updateButton{
-  background-color: #046b99;
+  background-color: #1c304a;
   border: none;
-  border-radius: 6px;
+  border-radius: 24px;
   font-size: 30px;
   line-height: 48px;
   padding: 0 16px;
-  width: 332px;
+  width: 160px;
   color: #fff;
+  font-family: Roboto;
 }
 
 .profModCard{
