@@ -2,24 +2,26 @@ import React, {useState} from "react"
 
 function SaveResourceForm({original, modified, userId, setModal}) {
 
+    console.log("original", original)
     const [resourceTitle, setResourceTitle] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('http://127.0.0.1:5555/saveResource', {
+        fetch('/saveResource', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 title: resourceTitle,
-                url: original,
+                url: original.text,
                 userId: userId,
                 texts: modified.texts,
                 images: modified.images
             })
         })
         .then((r) => {
+            console.log(r)
             if (r.ok) {
                 r.json().then(data => {
                     // setUser() // add to context 
@@ -44,6 +46,7 @@ function SaveResourceForm({original, modified, userId, setModal}) {
                     />
                 </label>
                 <p>Save this original and modified resource. Choose a title to save it under, you can search reference it again later!</p>
+                <button type="submit">Save</button>
             </form>
         </div>
     )

@@ -10,12 +10,8 @@ function Profile() {
     const navigate = useNavigate()
     
     function handleLogout() {
-        fetch('http://127.0.0.1:5555/logout', {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({user_id: user.id})
+        fetch('/logout', {
+            method: "DELETE"
         })
         .then((resp) => {
             if (resp.ok) {
