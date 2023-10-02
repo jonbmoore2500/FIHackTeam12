@@ -8,7 +8,7 @@ import LandingPage from './components/LandingPage';
 import Profile from "./components/Profile";
 import DocModifierContainer from "./components/DocModifierContainer";
 import PortfolioContainer from "./components/PortfolioContainer";
-
+import ResourceByID from "./components/ResourceByID";
 import Layout from "./components/Layout";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
               <Route index element={finishReg ? <ModProfileForm /> : <Profile />} />
               <Route path="/profileEdit" element={<ModProfileForm preLogged={true}/>} />
               <Route path="/portfolio" element={<PortfolioContainer />}> 
-                {/* <Route> - subroutes for given doc ids. coming later. will just fetch a given resource and display in preexisting components */}
+                  <Route path=":id" element={< ResourceByID/>} />
               </Route> 
               <Route path="/docModifier" element={<DocModifierContainer />} />
             </Route>
