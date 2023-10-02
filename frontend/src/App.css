@@ -229,3 +229,39 @@ p.landingHead{
   height: 40px;
   width: 40px
 }
+
+#modifyForm{
+  height: 100px;
+  margin-top: 10px;
+  
+}
+#modifyFormDiv{
+  text-align: left;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+#modifyTextInput{
+  font-family: Roboto;
+  font-size: 16px;
+  margin-left: 5%;
+  width: 75%;
+  padding: 10px;
+  resize: none
+}
+.modifyButton {
+  background-color: #046b99;
+  border: none;
+  border-radius: 24px;
+  font-size: 30px;
+  line-height: 48px;
+  width: 160px;
+  color: #fff;
+  font-family: Roboto;
+  /* background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer; */
+}
