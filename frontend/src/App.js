@@ -10,6 +10,7 @@ import DocModifierContainer from "./components/DocModifierContainer";
 import PortfolioContainer from "./components/PortfolioContainer";
 import ResourceByID from "./components/ResourceByID";
 import Layout from "./components/Layout";
+import TermsConditions from "./components/TermsConditions";
 
 function App() {
 
@@ -33,7 +34,12 @@ function App() {
           </Routes>
         </BrowserRouter>
         :
-        <LandingPage />
+        <BrowserRouter >
+          <Routes >
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/termsandconditions" element={<TermsConditions />} />
+          </Routes>
+        </BrowserRouter>
         }
     </div>
   );

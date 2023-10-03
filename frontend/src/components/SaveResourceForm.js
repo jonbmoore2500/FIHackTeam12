@@ -1,8 +1,9 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
+import { UserContext } from "../contexts/UserContext"
 
-function SaveResourceForm({original, modified, userId, setModal}) {
+function SaveResourceForm({original, modified, setShowSave}) {
 
-    console.log("original", original)
+    const {user, handleNewResource} = useContext(UserContext)
     const [resourceTitle, setResourceTitle] = useState("")
 
     function handleSubmit(e) {
@@ -15,7 +16,7 @@ function SaveResourceForm({original, modified, userId, setModal}) {
             body: JSON.stringify({
                 title: resourceTitle,
                 url: original.text,
-                userId: userId,
+                userId: user.id,
                 texts: modified.texts,
                 images: modified.images
             })
@@ -24,8 +25,9 @@ function SaveResourceForm({original, modified, userId, setModal}) {
             console.log(r)
             if (r.ok) {
                 r.json().then(data => {
-                    // setUser() // add to context 
-                    setModal(false)
+                    handleNewResource(data) 
+                    // console.log(data)
+                    setShowSave(false)
                 })
             } else {
                 r.json().then(err => {
@@ -45,8 +47,11 @@ function SaveResourceForm({original, modified, userId, setModal}) {
                         value={resourceTitle}
                     />
                 </label>
-                <p>Save this original and modified resource. Choose a title to save it under, you can search reference it again later!</p>
-                <button type="submit">Save</button>
+                <p>This will save the original and modified resources together, you can find them in the Portfolio tab</p>
+                <div className="resourceButtonsDiv">
+                    <button type="submit" className="resourceButton">Save</button>
+                    <button onClick={() => setShowSave(false)} className="resourceButton">Cancel</button>
+                </div>
             </form>
         </div>
     )
