@@ -1,7 +1,7 @@
 import React from "react"
 
 function OriginalDocContainer({originalContent, style}) {
-    console.log(style)
+    console.log(originalContent)
     return (
         <div>
         {/* copies a whole block of text, formatted strangely. not sure how to deal with this, is going to depend on the unique html layout of every page  */}

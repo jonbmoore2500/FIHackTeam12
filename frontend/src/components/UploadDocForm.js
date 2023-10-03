@@ -72,8 +72,10 @@ function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, set
                     rows="4"
                     cols="100"
                     id="modifyTextInput"
+                    placeholder="Input text here"
+                    // make this bigger
                 />
-                <button type="submit" className="modifyButton">Modify Resource</button>
+                <button type="submit" className="modifyButton">Generate</button>
             </div>
         </form>
 
