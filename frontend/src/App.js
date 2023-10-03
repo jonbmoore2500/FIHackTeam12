@@ -27,8 +27,9 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={finishReg ? <ModProfileForm /> : <Profile />} />
               <Route path="/profileEdit" element={<ModProfileForm preLogged={true}/>} />
-              <Route path="/portfolio" element={<PortfolioContainer />}/> 
-              <Route path="/portfolio/:id" element={< ResourceByID/>} />
+              <Route path="/portfolio" element={<PortfolioContainer />}>
+                <Route path="/portfolio/:id" element={< ResourceByID/>} />
+              </Route> 
               <Route path="/docModifier" element={<DocModifierContainer />} />
             </Route>
           </Routes>

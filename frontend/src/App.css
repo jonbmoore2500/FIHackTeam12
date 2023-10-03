@@ -389,7 +389,7 @@ p {
 .portfolioContainerLink {
   display: block;
   text-decoration: none;
-  padding: 20px;
+  padding: 10px;
   font-size: 18px;
   color: #333;
   border: 1px solid #ccc;
@@ -401,10 +401,10 @@ p {
 
 .portfolioContainerLink:hover {
   background-color: #b3efff;
-  color: #fff;
+  font-weight: bold
 }
 
-.portfolioContainerDiv {
+.portfolioContainerDivHead {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -427,13 +427,15 @@ p {
   padding: 20px;
 }
 
-.ResourcebyidOriginalDiv {
+.ResourcebyidContainerDiv {
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 20px;
-  width: 45%;
+  width: 70%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-left: 15%;
 }
 
 .ResourcebyidOriginalh2 {
@@ -451,14 +453,14 @@ p {
   height: auto;
 }
 
-.ResourcebyidModifiedDiv {
+/* .ResourcebyidModifiedDiv {
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 20px;
   width: 45%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .ResourcebyidModifiedh2 {
   font-size: 24px;
