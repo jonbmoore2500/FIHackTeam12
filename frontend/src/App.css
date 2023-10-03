@@ -386,3 +386,88 @@ p {
 #tcContent p{
   font-size: 18px;
 }
+.portfolioContainerLink {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  font-size: 18px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.portfolioContainerLink:hover {
+  background-color: #b3efff;
+  color: #fff;
+}
+
+.portfolioContainerDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.ResourcebyidDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ResourceCardsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.ResourcebyidOriginalDiv {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 20px;
+  width: 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ResourcebyidOriginalh2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.ResourcebyidOriginalTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ResourcebyidOriginalImg {
+  max-width: 100%;
+  height: auto;
+}
+
+.ResourcebyidModifiedDiv {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 20px;
+  width: 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ResourcebyidModifiedh2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.ResourcebyidModifiedText {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
