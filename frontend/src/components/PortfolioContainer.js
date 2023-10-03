@@ -7,7 +7,7 @@ function PortfolioContainer() {
     if (!context) {
         return null
     }
-    // console.log("portfolio", context)
+    
     return (
         <>
         <div className="portfolioContainerDivHead">   
