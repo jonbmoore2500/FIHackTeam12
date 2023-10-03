@@ -78,7 +78,7 @@ function DocModifierContainer() {
                     <OriginalDocContainer style={style} originalContent={originalContent} /> 
                 :
                     <>
-                        {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent}/> : <ModDocContainer />} 
+                        {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent} style={style}/> : <ModDocContainer />} 
                         {/* insert loading screen if no modified content? */}
                     </>
                 }
