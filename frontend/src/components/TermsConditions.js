@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 function TermsConditions() {
 
@@ -6,6 +7,14 @@ function TermsConditions() {
 
     return (
         <div>
+            <img 
+                src="KeyWBackground.png" 
+                alt="Key over backround with several shades of blue. Art credit: Kels Tyler"
+                id="tcImg"
+            />
+            <h2>Terms and Conditions</h2>
+            <Link to="/">Return to Landing Page</Link>
+
             <p> 
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi quis eleifend quam adipiscing vitae proin. Quis commodo odio aenean sed adipiscing. Pellentesque massa placerat duis ultricies lacus sed turpis. Commodo sed egestas egestas fringilla phasellus. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Consectetur libero id faucibus nisl tincidunt eget. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam. Porttitor lacus luctus accumsan tortor posuere ac ut.
             </p>

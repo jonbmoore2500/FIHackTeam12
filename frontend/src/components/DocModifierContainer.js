@@ -10,7 +10,7 @@ function DocModifierContainer() {
     const {user} = useContext(UserContext)
 
     const [showOriginal, setShowOriginal] = useState(true)
-    const [modal, setModal] = useState(false)
+    const [showSave, setShowSave] = useState(false)
 
     const [originalContent, setOriginalContent] = useState({text: "", images: []})
 
@@ -23,13 +23,12 @@ function DocModifierContainer() {
         setEnableButton(false)
     }
 
-
     return (
         <div>
             <UploadDocForm setShowOriginal={setShowOriginal} setOriginalContent={setOriginalContent} handleModified={handleModified} setEnableButton={setEnableButton}/>
             <div className="resourceButtonsDiv">
                 <button
-                    onClick={() => setModal(true)}
+                    onClick={() => setShowSave(true)}
                     disabled={enableButton}
                     className="resourceButton"
                 >
@@ -43,6 +42,23 @@ function DocModifierContainer() {
                     Show {showOriginal ? "Modified" : "Original"}
                 </button>
             </div>
+            {showSave ? 
+            <div id="saveFormDiv">
+                <SaveResourceForm original={originalContent} modified={modifiedContent} setShowSave={setShowSave}/>
+            </div>
+                        // { modal ? 
+                        //     <div className="modal">
+                        //         <div onClick={() => setModal(false)} className="overlay"></div> 
+                        //         <div className="modal-content">
+                        //             <SaveResourceForm original={originalContent} modified={modifiedContent} userId={user.id} setModal={setModal}/>
+
+                        //         </div>
+                        //     </div>
+                        //     : null
+                        //     }
+            :
+                null
+            }
             <div id="materialsContainer">
                 {showOriginal ? 
                     <OriginalDocContainer originalContent={originalContent} /> 
@@ -53,16 +69,6 @@ function DocModifierContainer() {
                     </>
                 }
             </div>
-            { modal ? 
-            <div className="modal">
-                <div onClick={() => setModal(false)} className="overlay"></div> 
-                <div className="modal-content">
-                    <SaveResourceForm original={originalContent} modified={modifiedContent} userId={user.id} setModal={setModal}/>
-                    <button onClick={() => setModal(false)} className="landingButton">Cancel</button>
-                </div>
-            </div>
-            : null
-            }
         </div>
     )
 }
