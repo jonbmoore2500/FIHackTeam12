@@ -8,9 +8,9 @@ function OriginalDocContainer({originalContent, style}) {
             { originalContent ? 
             <p style={style}>
                 {originalContent.text} 
-                {/* {originalContent.images.map((src, i) => (
+                {originalContent.images.map((src, i) => (
                     <img key={i} src={src} alt={`Image ${i}`} />
-                ))} */}
+                ))}
             </p>
             :
             null
