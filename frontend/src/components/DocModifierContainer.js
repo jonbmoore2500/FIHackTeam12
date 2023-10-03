@@ -4,10 +4,18 @@ import ModDocContainer from "./ModDocContainer"
 import OriginalDocContainer from "./OriginalDocContainer"
 import UploadDocForm from "./UploadDocForm"
 import SaveResourceForm from "./SaveResourceForm"
+import Toolbar from "./Toolbar"
 
 function DocModifierContainer() {
 
     const {user} = useContext(UserContext)
+    
+    const [style, setStyle] = useState({
+        fontSize: '',
+        fontWeight: '',
+        fontStyle: '',
+        color: ''
+    })
 
     const [showOriginal, setShowOriginal] = useState(true)
     const [modal, setModal] = useState(false)
@@ -23,7 +31,12 @@ function DocModifierContainer() {
         setEnableButton(false)
     }
 
-
+    // function handleSelect(e) {
+    //     setStyle({...style, [e.target.name]: e.target.value})
+    // }
+    // function handleChecked(e) {
+    //     setIsChecked({...isChecked, [e.target.name]: e.target.checked})
+    // }
     return (
         <div>
             <UploadDocForm setShowOriginal={setShowOriginal} setOriginalContent={setOriginalContent} handleModified={handleModified} setEnableButton={setEnableButton}/>
@@ -43,9 +56,15 @@ function DocModifierContainer() {
                     Show {showOriginal ? "Modified" : "Original"}
                 </button>
             </div>
+            {originalContent.text ? 
+            <Toolbar style={style} setStyle={setStyle} />
+            : 
+            ''
+            }
+            
             <div id="materialsContainer">
                 {showOriginal ? 
-                    <OriginalDocContainer originalContent={originalContent} /> 
+                    <OriginalDocContainer style={style} originalContent={originalContent} /> 
                 :
                     <>
                         {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent}/> : <ModDocContainer />} 
