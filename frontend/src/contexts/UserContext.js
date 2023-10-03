@@ -24,7 +24,12 @@ function UserProvider({children}) {
     //     })
     // }, [])
 
-    return <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>
+    function handleNewResource(data) {
+        const newResource = {id: data[1].id, image: data[3], original: data[1].original, originalId: data[1].originalId, text: data[2]}
+        setUser({...user, modifiedResource: [...user.modifiedResource, newResource]})
+    }
+
+    return <UserContext.Provider value={{user, setUser, handleNewResource}}>{children}</UserContext.Provider>
 }
 
 export {UserContext, UserProvider}

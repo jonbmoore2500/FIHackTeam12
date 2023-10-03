@@ -18,7 +18,7 @@ function DocModifierContainer() {
     })
 
     const [showOriginal, setShowOriginal] = useState(true)
-    const [modal, setModal] = useState(false)
+    const [showSave, setShowSave] = useState(false)
 
     const [originalContent, setOriginalContent] = useState({text: "", images: []})
 
@@ -31,18 +31,12 @@ function DocModifierContainer() {
         setEnableButton(false)
     }
 
-    // function handleSelect(e) {
-    //     setStyle({...style, [e.target.name]: e.target.value})
-    // }
-    // function handleChecked(e) {
-    //     setIsChecked({...isChecked, [e.target.name]: e.target.checked})
-    // }
     return (
         <div>
             <UploadDocForm setShowOriginal={setShowOriginal} setOriginalContent={setOriginalContent} handleModified={handleModified} setEnableButton={setEnableButton}/>
             <div className="resourceButtonsDiv">
                 <button
-                    onClick={() => setModal(true)}
+                    onClick={() => setShowSave(true)}
                     disabled={enableButton}
                     className="resourceButton"
                 >
@@ -56,12 +50,29 @@ function DocModifierContainer() {
                     Show {showOriginal ? "Modified" : "Original"}
                 </button>
             </div>
+
             {originalContent.text ? 
             <Toolbar style={style} setStyle={setStyle} />
             : 
             ''
             }
-            
+            {showSave ? 
+            <div id="saveFormDiv">
+                <SaveResourceForm original={originalContent} modified={modifiedContent} setShowSave={setShowSave}/>
+            </div>
+                        // { modal ? 
+                        //     <div className="modal">
+                        //         <div onClick={() => setModal(false)} className="overlay"></div> 
+                        //         <div className="modal-content">
+                        //             <SaveResourceForm original={originalContent} modified={modifiedContent} userId={user.id} setModal={setModal}/>
+
+                        //         </div>
+                        //     </div>
+                        //     : null
+                        //     }
+            :
+                null
+            }
             <div id="materialsContainer">
                 {showOriginal ? 
                     <OriginalDocContainer style={style} originalContent={originalContent} /> 
@@ -72,16 +83,6 @@ function DocModifierContainer() {
                     </>
                 }
             </div>
-            { modal ? 
-            <div className="modal">
-                <div onClick={() => setModal(false)} className="overlay"></div> 
-                <div className="modal-content">
-                    <SaveResourceForm original={originalContent} modified={modifiedContent} userId={user.id} setModal={setModal}/>
-                    <button onClick={() => setModal(false)} className="landingButton">Cancel</button>
-                </div>
-            </div>
-            : null
-            }
         </div>
     )
 }

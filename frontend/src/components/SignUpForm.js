@@ -1,5 +1,6 @@
 import React, {useState, useContext} from "react"
 import { UserContext } from "../contexts/UserContext"
+import { Link } from "react-router-dom"
 
 function SignUpForm() {
 
@@ -68,7 +69,7 @@ function SignUpForm() {
                 {/* one more for confirmPW */}
                 <div className="checkBoxesDiv">
                     <label className="pwSelect">
-                        <span className="pwBoxLabel">Accept Terms and Conditions</span>
+                        <span className="pwBoxLabel">Accept <Link to={"/termsandconditions"}>Terms and Conditions</Link></span>
                         <input type="checkbox" checked={acceptTC} onChange={() => setAcceptTC(!acceptTC)}/>
                     </label>
                     <label className="pwSelect">

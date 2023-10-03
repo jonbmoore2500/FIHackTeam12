@@ -12,8 +12,8 @@ function LandingPage() {
     return (
         <div id="landingPageDiv"> 
             <div id="welcomeDiv" className="landingFlex">
-                <h1 id="appTitle">Learn Link</h1>
-                <img src="/EyeIcon.png" alt="Application Logo, a large blue eye" id="landingLogo" />
+                {/* <h1 id="appTitle">Learn Link</h1> */}
+                <img src="/CroppedEyeWithLL.png" alt="Application Logo, a large blue eye" id="landingLogo" />
             </div>
             <div id="vertLineDive"></div>
             <div id="signInDiv" className="landingFlex">
