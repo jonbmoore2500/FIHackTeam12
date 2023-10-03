@@ -8,11 +8,10 @@ function PortfolioContainer() {
         return null
     }
     return (
-        <div>   
+        <div className="portfolioContainerDiv">   
             {context.user.modifiedResource.map((resource) => {
-                return <Link key={resource.id} to={`/portfolio/${resource.id}`}>{resource.text[0].text}</Link>
+                return <Link className="portfolioContainerLink" key={resource.id} to={`/portfolio/${resource.id}`}>{resource.text[0].text}</Link>
             })}
-            Portfolio coming soon!
         </div>
     )
 }
