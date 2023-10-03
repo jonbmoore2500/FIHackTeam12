@@ -338,6 +338,51 @@ p {
 #saveFormDiv{
   padding-top:10px
 }
+
+#tcDiv{
+  position: relative;
+  text-align:center;
+}
+#tcImgDiv{
+
+}
 #tcImg{
-  width: 100%;
+  width: 50%;
+}
+#tcHeader1{
+  position: absolute;
+  top:6%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  color:white
+}
+#tcHeader2{
+
+  position: absolute;
+  top:11.75%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  color:white
+}
+#tcHeader3{
+
+  position: absolute;
+  top:16%;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  color:white
+}
+#tcLink{
+  font-size: 18px;
+}
+#tcContent{
+  text-align: left;
+  width: 70%;
+  padding-left: 15%;
+}
+#tcContent p{
+  font-size: 18px;
 }
