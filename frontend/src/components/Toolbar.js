@@ -6,10 +6,19 @@ function Toolbar({style, setStyle}) {
     function handleSelect(e) {
         setStyle({...style, [e.target.name]: e.target.value})
     }
-
+console.log(style)
   return (
-    <div>
-        <label>Modify text size: </label>
+    <div className='toolbar'>
+        <label >Font: </label>
+        <select name='fontFamily' onChange={handleSelect}>
+            <option value='' selected>Original</option>
+            <option value='Impact' >Impact</option>
+            <option value='Arial' >Arial</option>
+            <option value='Courier New' >Courier New</option>
+            <option value='Lucida Console' >Lucida Console</option>
+            <option value='Franklin Gothic Medium' >Franklin Gothic Medium</option>
+        </select>
+        <label>Text size: </label>
         <select name='fontSize' onChange={handleSelect}>
             <option value='' selected>Original</option>
             <option value='x-large' >XL</option>
@@ -19,17 +28,25 @@ function Toolbar({style, setStyle}) {
             <option value='small' >Small</option>
         </select>
         
-        <label style={{marginLeft: '10px'}} >Modify text color: </label>
+        <label >Text color: </label>
         <select name='color' onChange={handleSelect} >
             <option value='' selected>Original</option>
             <option value='blue' >blue</option>
             <option value='red' >red</option>
             <option value='orange' >orange</option>
-            <option value='yellow' >yellow</option>
             <option value='green' >green</option>
+            <option value='yellow' >yellow</option>
+        </select>
+        <label >Background color: </label>
+        <select name='background' onChange={handleSelect} >
+            <option value='' selected>Original</option>
+            <option value='blue' >blue</option>
+            <option value='red' >red</option>
+            <option value='orange' >orange</option>
+            <option value='green' >green</option>
+            <option value='yellow' >yellow</option>
         </select>
         <input 
-        style={{marginLeft: '10px'}}
         type='checkbox'
         name='bold'
         checked={isChecked.bold}
@@ -40,9 +57,8 @@ function Toolbar({style, setStyle}) {
             : setStyle({...style, fontWeight: ''})
         }}
         ></input>
-        <label >Bold</label>
+        <label style={{marginLeft: 0}}>Bold</label>
         <input 
-        style={{marginLeft: '10px'}} 
         type='checkbox'
         name='italic'
         checked={isChecked.italic}
@@ -53,7 +69,7 @@ function Toolbar({style, setStyle}) {
             : setStyle({...style, fontStyle: ''})
         }}
         ></input>
-        <label >Italic</label>
+        <label style={{marginLeft: 0}}>Italic</label>
         
     </div>
   )
