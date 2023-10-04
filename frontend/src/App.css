@@ -170,7 +170,9 @@ p.landingHead{
   padding: 10px;
   display: flex;
   justify-content: space-evenly;
-
+}
+.navIcon{
+  padding-right: 5%;
 }
 #navHeader li{
   flex: 1;
@@ -226,7 +228,8 @@ p.landingHead{
   width: 40px;
   border-radius: 6px;
   margin: 0 auto;
-  color: black
+  color: black;
+  margin-top:40px
 }
 
 .updateButton{
@@ -264,6 +267,18 @@ p.landingHead{
   width: 40px
 }
 
+#resourceByIdHead{
+  display: flex;
+  margin-top:10px;
+  margin-bottom:10px
+}
+#resourceByIdToolbar{
+margin-left:10%;
+margin-top:15px
+}
+#resourceByIdButton{
+margin-left:5%
+}
 #modifyForm{
   height: 100px;
   margin-top: 10px;
@@ -285,6 +300,10 @@ p.landingHead{
   resize: none;
   flex:5
 }
+#modifierBodyDiv{
+  display: flex
+}
+
 .modifyButton {
   background-color: #046b99;
   border: none;
@@ -301,51 +320,89 @@ p.landingHead{
 }
 
 .resourceButtonsDiv{
-margin-top: 10px;
+  margin-top: 10px;
+  margin-left:1%;
+  margin-right: 4%;
+  flex: 1
 }
 
 .resourceButton{
-  background-color: #046b99;
+  background-color: #00cfff;
   border: none;
   border-radius: 24px;
   font-size: 30px;
   line-height: 48px;
-  width: 260px;
-  color: #fff;
+  width: 200px;
   font-family: Roboto;
   height: 50px;
   margin-right:5%;
   margin-left: 1%;
+  margin-top: 10px
 }
 .resourceButton:disabled{
   background-color: rgba(4, 106, 153, 0.674);
 }
 
+#saveResourceForm{
+  display: flex;
+  height: 50px;
+  margin-top:10px;
+  margin-bottom: 10px
+}
+#saveResLabel{
+  /* height: 30px */
+  padding-top:8px;
+  flex: 2;
+  font-size: 24px;
+}
+#saveResSpan{
+padding-right: 10px
+}
+#saveResInput{
+  width: 70%;
+  font-family: Roboto;
+  font-size: 24px
+}
+.saveButtonsDiv{
+  flex: 1;
+  text-align: right;
+  /* margin-bottom: 10px; */
 
+}
+.saveButton{
+  background-color: #00cfff;
+  border: none;
+  border-radius: 24px;
+  font-size: 30px;
+  line-height: 48px;
+  width: 220px;
+  font-family: Roboto;
+  height: 50px;
+  margin-right:10%;
+  margin-left: 1%;
+  /* margin-top: 10px */
+}
 
 #materialsContainer{
-  width: 70%;
-  padding-left: 15%;
-  padding-right: 15%;
+  width: 75%;
+  margin-left: 5%;
+  margin-right: 1%;
   font-size: 20px;
   max-height: 50%;
   text-align: left;
+  flex: 5
 }
 p {
   background-color: white;
   padding:5px
 }
-#saveFormDiv{
-  padding-top:10px
-}
+
 
 #tcDiv{
   position: relative;
   text-align:center;
 }
-#tcImgDiv{
 
-}
 #tcImg{
   width: 50%;
 }
@@ -389,6 +446,7 @@ p {
 
 .toolbar {
   text-align: center;
+  margin-top: 5px
 }
 .toolbar label {
   margin-left: 10px;
@@ -464,14 +522,6 @@ p {
   height: auto;
 }
 
-/* .ResourcebyidModifiedDiv {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  padding: 20px;
-  width: 45%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-} */
 
 .ResourcebyidModifiedh2 {
   font-size: 24px;

@@ -22,7 +22,7 @@ function SaveResourceForm({original, modified, setShowSave}) {
             })
         })
         .then((r) => {
-            console.log(r)
+            // console.log(r)
             if (r.ok) {
                 r.json().then(data => {
                     handleNewResource(data) 
@@ -38,19 +38,19 @@ function SaveResourceForm({original, modified, setShowSave}) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <span>Resource Title</span>
+        <div >
+            <form onSubmit={handleSubmit} id="saveResourceForm">
+                <label id="saveResLabel">
+                    <span id="saveResSpan">Resource Title</span>
                     <input 
                         onChange={(e) => setResourceTitle(e.target.value)}
                         value={resourceTitle}
+                        id="saveResInput"
                     />
                 </label>
-                <p>This will save the original and modified resources together, you can find them in the Portfolio tab</p>
-                <div className="resourceButtonsDiv">
-                    <button type="submit" className="resourceButton">Save</button>
-                    <button onClick={() => setShowSave(false)} className="resourceButton">Cancel</button>
+                <div className="saveButtonsDiv">
+                    <button type="submit" className="saveButton">Save Resource</button>
+                    {/* <button onClick={() => setShowSave(false)} className="saveButton">Cancel Save</button> */}
                 </div>
             </form>
         </div>

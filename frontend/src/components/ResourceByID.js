@@ -25,9 +25,18 @@ function ResourceByID() {
 
     return (
         <div>
-            <Toolbar style={style} setStyle={setStyle} />
-            <button onClick={() => setShowMod(!showMod)}>Show {showMod ? "Original" : "Modified"}</button>
-
+            <div id="resourceByIdHead">
+                <div id="resourceByIdToolbar">
+                    <Toolbar style={style} setStyle={setStyle} />
+                </div>
+                <button 
+                    onClick={() => setShowMod(!showMod)}
+                    className="resourceButton"
+                    id="resourceByIdButton"
+                >
+                    Show {showMod ? "Original" : "Modified"}
+                </button>
+            </div>
             <div>
                 {showMod ? 
                     <div className="ResourcebyidContainerDiv">

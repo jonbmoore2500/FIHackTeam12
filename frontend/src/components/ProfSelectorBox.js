@@ -16,7 +16,7 @@ function ProfSelectorBox({option, selected}) {
     return (
         <div className={"selectorBox" + (selected ? " selected": " unSelected")}>
             <h3>{renderSwitch(option)}</h3>
-            <h5>image goes here</h5>
+            {/* <h5>image goes here</h5> */}
             <div className={"selectorCheck" + (selected ? " checked": " unChecked")}>
                 {selected ? <h1>✔</h1> : <h1></h1> }
             </div>
