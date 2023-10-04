@@ -173,6 +173,7 @@ p.landingHead{
 }
 .navIcon{
   padding-right: 5%;
+  vertical-align: middle;
 }
 #navHeader li{
   flex: 1;
