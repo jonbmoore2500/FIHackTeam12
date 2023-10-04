@@ -46,14 +46,14 @@ function ModProfileForm({preLogged = false}) {
 
     return (
         <div id="modProfileDiv">
+            <h2>Welcome!</h2>
             <img src="/BodyIcon.png" width="200" />
-            <div>Accessibility text - work in progress</div>
-            <p>how should we explain what each option does? mouseover? show more info button?</p>
-            <p>stuck using blue checkboxes, can't figure out how to change those colors for the life of me</p>
+            <h3>Please check which accessibility features apply to your workspace and save</h3>
             <div className="profBoxContainer">
                 <div className={"selectorBox" + (simplifyBool ? " selected": " unSelected")}>
                     <h3>Simplify Text</h3>
-                    <h5>image goes here</h5>
+                    {/* <h5>image goes here</h5> */}
+                    <br></br>
                     <label className="profModLabel">
                         <span className="profModSPan"></span>
                         <input 
@@ -66,7 +66,8 @@ function ModProfileForm({preLogged = false}) {
                 </div>
                 <div className={"selectorBox" + (imagesBool ? " selected": " unSelected")}>
                     <h3>Add Images</h3>
-                    <h5>image goes here</h5>
+                    {/* <h5>image goes here</h5> */}
+                    <br></br>
                     <label className="profModLabel">
                         <span className="profModSPan"></span>
                         <input 
@@ -79,7 +80,8 @@ function ModProfileForm({preLogged = false}) {
                 </div>
                 <div className={"selectorBox" + (captionsBool ? " selected": " unSelected")}>
                     <h3>Add Captions</h3>
-                    <h5>image goes here</h5>
+                    {/* <h5>image goes here</h5> */}
+                    <br></br>
                     <label className="profModLabel">
                         <span className="profModSPan"></span>
                         <input 
@@ -92,7 +94,7 @@ function ModProfileForm({preLogged = false}) {
                 </div>
             </div>
             <form onSubmit={handleSubmit}>
-                <button type="submit" className="updateButton">Save</button>
+                <button type="submit" className="updateButton">Save Settings</button>
             </form>
         </div>
     )

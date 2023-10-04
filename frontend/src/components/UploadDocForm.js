@@ -57,9 +57,11 @@ function UploadDocForm({setShowOriginal, setOriginalContent, handleModified, set
 
     function handleSubmitText(e) {
         e.preventDefault()
-        setShowOriginal(true)
-        setEnableButton(true)
-        fetchContent(text, "text")
+        if (text.length > 0) {
+            setShowOriginal(true)
+            setEnableButton(true)
+            fetchContent(text, "text")
+        }
     }
 
     return (
