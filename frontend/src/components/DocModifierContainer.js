@@ -36,55 +36,55 @@ function DocModifierContainer() {
 
     return (
         <div>
+            <h2>Modify a resource according to your settings. Save the resource and review it later in your Workspace</h2>
+            <h3>&#40;Currently only supports plain text, external websites and PDFs coming soon&#41;</h3>
             <UploadDocForm setShowOriginal={setShowOriginal} setOriginalContent={setOriginalContent} handleModified={handleModified} setEnableButton={setEnableButton}/>
-            <div className="resourceButtonsDiv">
-                <button
-                    onClick={() => setShowSave(true)}
-                    disabled={enableButton}
-                    className="resourceButton"
-                >
-                    Save Resource
-                </button>
-                <button 
-                    onClick={() => setShowOriginal(!showOriginal)}
-                    disabled={enableButton}
-                    className="resourceButton"
-                >
-                    Show {showOriginal ? "Modified" : "Original"}
-                </button>
-            </div>
-
-            {originalContent.text ? 
-            <Toolbar style={style} setStyle={setStyle} />
-            : 
-            ''
-            }
-            {showSave ? 
-            <div id="saveFormDiv">
-                <SaveResourceForm original={originalContent} modified={modifiedContent} setShowSave={setShowSave}/>
-            </div>
-                        // { modal ? 
-                        //     <div className="modal">
-                        //         <div onClick={() => setModal(false)} className="overlay"></div> 
-                        //         <div className="modal-content">
-                        //             <SaveResourceForm original={originalContent} modified={modifiedContent} userId={user.id} setModal={setModal}/>
-
-                        //         </div>
-                        //     </div>
-                        //     : null
-                        //     }
-            :
-                null
-            }
-            <div id="materialsContainer">
-                {showOriginal ? 
-                    <OriginalDocContainer style={style} originalContent={originalContent} /> 
-                :
+            
+            <div id="modifierBodyDiv">
+                <div id="materialsContainer">
+                    {/* <br></br> */}
+                    {showSave ? 
+                        <div id="saveFormDiv">
+                            <SaveResourceForm original={originalContent} modified={modifiedContent} setShowSave={setShowSave}/>
+                            <div id="loginLineBreak"></div>
+                        </div>
+                    :
+                        null
+                    }
+                    {originalContent.text ? 
                     <>
-                        {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent} style={style}/> : <ModDocContainer style={style} />} 
-                        {/* insert loading screen if no modified content? */}
+                        <Toolbar style={style} setStyle={setStyle} />
+                        <div id="loginLineBreak"></div>
                     </>
-                }
+                    : 
+                    ''
+                    }
+                    {showOriginal ? 
+                        <OriginalDocContainer style={style} originalContent={originalContent} /> 
+                    :
+                        <>
+                            {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent} style={style}/> : <ModDocContainer style={style} />} 
+                            {/* insert loading screen if no modified content? */}
+                        </>
+                    }
+                </div>
+                <div className="resourceButtonsDiv">
+                    <button 
+                        onClick={() => setShowOriginal(!showOriginal)}
+                        disabled={enableButton}
+                        className="resourceButton"
+                    >
+                        Show {showOriginal ? "Modified" : "Original"}
+                    </button>
+                    <button
+                        onClick={() => setShowSave(!showSave)}
+                        disabled={enableButton}
+                        className="resourceButton"
+                    >
+                        {showSave ? "Cancel Save": "Save Form"}
+                    </button>
+
+                </div>
             </div>
         </div>
     )

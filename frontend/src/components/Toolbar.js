@@ -21,23 +21,23 @@ console.log(style)
         <label>Text size: </label>
         <select name='fontSize' onChange={handleSelect}>
             <option value='' selected>Original</option>
+            <option value='small' >Small</option>
+            <option value='medium' >Medium</option>
+            <option value='large' >Large</option>
             <option value='x-large' >XL</option>
             <option value='xx-large' >XXL</option>
-            <option value='large' >Large</option>
-            <option value='medium' >Medium</option>
-            <option value='small' >Small</option>
         </select>
-        
+        {/* <br></br> */}
         <label >Text color: </label>
         <select name='color' onChange={handleSelect} >
-            <option value='' selected>Original</option>
-            <option value='blue' >blue</option>
-            <option value='red' >red</option>
-            <option value='orange' >orange</option>
-            <option value='green' >green</option>
-            <option value='yellow' >yellow</option>
+            <option value='' selected>Black</option>
+            <option value='blue' >Blue</option>
+            <option value='red' >Red</option>
+            <option value='orange' >Orange</option>
+            <option value='green' >Green</option>
+            {/* <option value='yellow' >yellow</option> */}
         </select>
-        <label >Background color: </label>
+        {/* <label >Background color: </label>
         <select name='background' onChange={handleSelect} >
             <option value='' selected>Original</option>
             <option value='blue' >blue</option>
@@ -45,7 +45,8 @@ console.log(style)
             <option value='orange' >orange</option>
             <option value='green' >green</option>
             <option value='yellow' >yellow</option>
-        </select>
+        </select> */}
+        {/* we need to be pickier about what text and background colors we provide as options */}
         <input 
         type='checkbox'
         name='bold'
