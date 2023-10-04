@@ -46,7 +46,7 @@ function ModDocContainer({obj = sample, style}) {
             {dispData.map((arr, i) => {
                 if (arr[0] === "text") {
                     return (
-                        <p key={i}>{arr[1]}</p>
+                        <p style={style} key={i}>{arr[1]}</p>
                     )
                 } else if (arr[0] === "img") {
                     return (

@@ -386,6 +386,17 @@ p {
 #tcContent p{
   font-size: 18px;
 }
+
+.toolbar {
+  text-align: center;
+}
+.toolbar label {
+  margin-left: 10px;
+}
+.toolbar {
+  text-align: center;
+}
+
 .portfolioContainerLink {
   display: block;
   text-decoration: none;

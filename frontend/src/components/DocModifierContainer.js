@@ -14,8 +14,11 @@ function DocModifierContainer() {
         fontSize: '',
         fontWeight: '',
         fontStyle: '',
-        color: ''
+        color: '',
+        fontFamily: '',
+        background: ''
     })
+   
 
     const [showOriginal, setShowOriginal] = useState(true)
     const [showSave, setShowSave] = useState(false)
@@ -78,7 +81,7 @@ function DocModifierContainer() {
                     <OriginalDocContainer style={style} originalContent={originalContent} /> 
                 :
                     <>
-                        {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent}/> : <ModDocContainer />} 
+                        {modifiedContent.texts.length > 0 || modifiedContent.images.length > 0 ? <ModDocContainer obj={modifiedContent} style={style}/> : <ModDocContainer style={style} />} 
                         {/* insert loading screen if no modified content? */}
                     </>
                 }
