@@ -27,7 +27,9 @@ function Profile() {
         <div>
             <h1>User: {user["username"]}</h1>
             <button onClick={handleLogout} id="logoutButton">Logout</button>
-            <p>more profile info here</p>
+            {/* <p>more profile info here</p> */}
+            <br></br>
+            <br></br>
             <br></br>
             <h2>Your Modification Profile: </h2>
             <div className="profBoxContainer">
