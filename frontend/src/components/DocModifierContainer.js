@@ -52,10 +52,10 @@ function DocModifierContainer() {
                         null
                     }
                     {originalContent.text ? 
-                    <>
+                    <div id="docModToolbar">
                         <Toolbar style={style} setStyle={setStyle} />
                         <div id="loginLineBreak"></div>
-                    </>
+                    </div>
                     : 
                     ''
                     }

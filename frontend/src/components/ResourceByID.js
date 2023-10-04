@@ -41,7 +41,7 @@ function ResourceByID() {
                 {showMod ? 
                     <div className="ResourcebyidContainerDiv">
                         <h2 className="ResourcebyidModifiedh2">Modified</h2>
-                        <ModDocContainer obj={{texts: specificResource[0].text, images: specificResource[0].image}}/>
+                        <ModDocContainer obj={{texts: specificResource[0].text, images: specificResource[0].image}} style={style}/>
                     </div>
                     :
                     <div className="ResourcebyidContainerDiv" >

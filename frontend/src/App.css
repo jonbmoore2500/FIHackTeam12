@@ -82,7 +82,7 @@
 }
 #registerButton {
   background-color: #10a0e2;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   margin-left: 15%;
   margin-right: 5%;
   max-width: 160px;
@@ -276,7 +276,8 @@ p.landingHead{
 #resourceByIdHead{
   display: flex;
   margin-top:10px;
-  margin-bottom:10px
+  margin-bottom:10px;
+  margin-left:110px
 }
 #resourceByIdToolbar{
 margin-left:10%;
@@ -310,6 +311,9 @@ margin-left:5%
   display: flex
 }
 
+/* #docModToolbar{
+  text-align: left;
+} */
 .modifyButton {
   background-color: #046b99;
   border: none;
@@ -452,15 +456,15 @@ p {
 }
 
 .toolbar {
-  text-align: center;
+  text-align: left;
   margin-top: 5px
 }
 .toolbar label {
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
-.toolbar {
+/* .toolbar {
   text-align: center;
-}
+} */
 
 .portfolioContainerLink {
   display: block;
