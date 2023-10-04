@@ -15,7 +15,7 @@ function ModProfileForm({preLogged = false}) {
     function handleSubmit(e) {
         e.preventDefault()
         if ([simplifyBool, imagesBool, captionsBool].some(x => x === true)) {
-            fetch(`http://127.0.0.1:5555/user/${user.id}`, {
+            fetch(`/user/${user.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
