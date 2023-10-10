@@ -35,9 +35,7 @@ function SignInForm() {
 
 
     return (
-        <div>
-            <h1 className="landingHead">Login </h1> 
-            <br></br>
+        <div style={{marginTop: '5%'}}>
             <form onSubmit={handleSignIn}>
                 <div className="formGroup">
                     <label className="loginLabel">USERNAME</label>
@@ -51,7 +49,7 @@ function SignInForm() {
 
                 <br></br>
                 <div className="formGroup">
-                    <label className="loginLabel">USERNAME</label>
+                    <label className="loginLabel">PASSWORD</label>
                     <input 
                         onChange={(e) => setPass(e.target.value)} 
                         value={pass}
@@ -59,21 +57,17 @@ function SignInForm() {
                         className="logInInput"
                         placeholder="PASSWORD"
                     />
-                </div>
-                <br></br>
-
-                <div className="checkBoxesDiv">
-                    <label className="pwSelect">
-                    </label>
                     <label className="pwSelect">
                         <span className="pwBoxLabel">Show password</span>
-                    <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
-                </label>
+                        <input type="checkbox" checked={showPass} onChange={() => setShowPass(!showPass)}/>
+                    </label>
+                </div>
+
+                <div className="checkBoxesDiv">
                 </div>
                 <br></br>
-                <br></br>
-                <div className="rightButtonDiv">
-                    <button type="submit" className="landingButton">Submit</button>
+                <div className="loginButtonDiv">
+                    <button type="submit" className="landingButton">Login</button>
                 </div>
                 <div id="loginLineBreak"></div>
             </form>

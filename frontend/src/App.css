@@ -33,7 +33,6 @@
   font-weight: bold;
   padding: 5px;
   padding-left: 0;
-  flex:1;
   font-family: Roboto, sans-serif;
 }
 .logInInput {
@@ -49,9 +48,8 @@
   font-family: Roboto, sans-serif;
 }
 .checkBoxesDiv{
-  display:flex;
-  width: 480px;
-  padding-left: 15%;
+  display: flex;
+  justify-content: center;
 }
 
 #loginLineBreak {
@@ -83,9 +81,12 @@
 #registerButton {
   background-color: #10a0e2;
   font-family: Roboto, sans-serif;
-  margin-left: 15%;
-  margin-right: 5%;
   max-width: 160px;
+  margin: auto;
+  margin-top: 2%;
+}
+button:hover{
+  cursor: pointer;
 }
 #logoutButton {
   background-color: #10a0e2;
@@ -114,28 +115,27 @@
 
 #createAccFlex{
   display: flex;
-  padding-left: 22%
+  flex-direction: column;
+  justify-content: center;
 }
 #createAccCaption{
   margin: 0;
 }
 
 .pwSelect{
-  width: 20px;
-  height: 20px;
-  flex: 1
+  vertical-align: middle;
 }
 .pwBoxLabel{
   font-size: 16px;
 }
 .pwSelect input[type="checkbox"]{
   height:16px;
-  width: 16px
+  width: 16px;
+  vertical-align: middle;
 }
 
 .landingHead{
-  text-align: left;
-  padding-left: 15%;
+  text-align: center;
   font-size: 2.5em;
   margin-bottom: 0;
 }
@@ -144,10 +144,8 @@ p.landingHead{
   margin-top: 0
 }
 
-.rightButtonDiv{
-  display:block;
-  text-align: right;
-  padding-right: 20%;
+.loginButtonDiv{
+  text-align: center;
 }
 
 #headerDiv{
