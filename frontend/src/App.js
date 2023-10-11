@@ -11,6 +11,7 @@ import PortfolioContainer from "./components/PortfolioContainer";
 import ResourceByID from "./components/ResourceByID";
 import Layout from "./components/Layout";
 import TermsConditions from "./components/TermsConditions";
+import PDFUpload from "./components/PDFUpload";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/portfolio/:id" element={< ResourceByID/>} />
               </Route> 
               <Route path="/docModifier" element={<DocModifierContainer />} />
+              <Route path="/pdfMod" element={<PDFUpload />} />
             </Route>
           </Routes>
         </BrowserRouter>
